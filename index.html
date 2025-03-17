@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Générateur de factures</title>
+    <title>Générateur de factures et devis</title>
     <link href="./src/output.css" rel="stylesheet">
     <script src="./index.js" defer></script>
     <!-- AOS -->
@@ -19,13 +19,14 @@
 
     <!-- Header -->
 
-        <header>
-            <div class="flex items-center pt-4 md:pt-8 justify-between w-full border-b border-gray-200 pb-2 md:pb-0 md:border-b-0 fixed top-0 bg-white md:bg-transparent z-50">
+            <header>
+                <div class="flex items-center pt-4 md:pt-8 justify-between w-full border-b border-gray-200 pb-2 md:pb-0 md:border-b-0 fixed top-0 bg-white/50 backdrop-blur-sm md:backdrop-blur-none md:bg-transparent z-50">
 
                 <!-- Logo -->
 
+                <a href="index.html">
                 <img src="img/logo.svg" alt="Logo" class="ml-4 md:ml-8">
-
+                </a>
                 <!-- Icon mobile burger -->
 
                 <button id="buttonBurger" class="block text-gray-700 hover:text-black hover:bg-gray-200 hover:rounded-lg p-1 focus:outline-none cursor-pointer md:hidden absolute right-0 mr-4 md:mr-8">
@@ -43,9 +44,9 @@
                     <div class="hidden md:flex text-gray-700 bg-white rounded-3xl py-3 px-8 md:bg-white/50 md:backdrop-blur-sm md:shadow-md md:z-50">
 
                         <!-- Accueil -->
-
-                        <p class="pr-16 cursor-pointer hover:text-emerald-500">Accueil</p>
-
+                    
+                        <a href="index.html" class="pr-16 cursor-pointer hover:text-emerald-500">Accueil</a>
+                        
                         <!-- Facture -->
 
                         <div class="relative group">
@@ -79,24 +80,26 @@
                 <!-- Connexion and Créer un compte (hidden on mobile, visible on desktop) -->
 
                 <div class="hidden md:flex text-right mr-2">
+                    <a href="connnexion.html">
                     <span class="inline-block border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer hover:text-emerald-500">Connexion</span>
+                    </a>
                 </div>
                 <div class="hidden md:block pr-8">
+                    <a href="createaccount.html">
                     <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400">Créer un compte</span>
+                    </a>
                 </div>       
             </div>   
 
         <!-- Mobile Sliding Menu -->
 
-        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-50">
-
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white/50 backdrop-blur-sm shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-50">
             <!-- Header du menu mobile (logo + bouton de fermeture) -->
-
             <div class="flex justify-between items-center p-4 border-b border-gray-200">
 
                 <!-- Logo -->
 
-                <a href="index.html">
+                <a href="index.html" class="cursor-pointer">
                     <img src="img/logo.svg" alt="Billify" class="h-10 w-auto">
                 </a>
 
@@ -113,12 +116,12 @@
 
              <div>
                 <nav class="flex flex-col space-y-3 p-4">
-                <p class="block border-b border-gray-200 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer">Accueil</p>
+                <a href="index.html" class="block border-b border-gray-200 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer">Accueil</a>
                 <p class="block border-b border-gray-200 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer">Factures</p>
                 <p class="block border-b border-gray-200 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer">Devis</p>
                 <p id="clickSupportMobile" class="block border-b border-gray-200 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer">Support</p>
-                <p class="flex justify-center border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer hover:text-emerald-500 items-center w-1/2">Connexion</p>
-                <p class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3">Créer un compte</p>
+                <a href="connnexion.html" class="flex justify-center border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer hover:text-emerald-500 items-center w-1/2">Connexion</a>
+                <a href="createaccount.html" class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3">Créer un compte</a>
                 </nav>
              </div>
         </div>
