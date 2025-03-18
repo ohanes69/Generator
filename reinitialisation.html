@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mot de passe oublié</title>
+    <title>Réinitialisation</title>
     <link href="./src/output.css" rel="stylesheet">
-    <script src="./forget.js" defer></script>
+    <script src="./reinitialisation.js" defer></script>
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -128,33 +128,34 @@
         </div>
     </header>
 
-         <!-- Page de réclamation -->
+         <!-- Page de réinitialisation -->
 
          <main class="container mx-auto px-4 flex items-center justify-center h-screen">
             <div class="p-4 md:p-8 rounded-lg md:shadow-lg w-full max-w-md">
-                <h2 class="text-2xl font-semibold text-center mb-6">Mot de passe oublié ?</h2>
+                <h2 class="text-2xl font-semibold text-center mb-6">Réinitialisation du mot de passe</h2>
                 
-                <p class="text-center text-gray-600 mb-4">Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.</p>
-                
-                <form action="#" method="POST" class="space-y-4">
-                    <!-- Email -->
+                <form id="reset-form" class="space-y-4">
+                    <!-- Nouveau mot de passe -->
                     <div>
-                        <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
-                        <input type="email" id="email" name="email" required
+                        <label for="new-password" class="block text-gray-700 font-medium mb-1">Nouveau mot de passe</label>
+                        <input type="password" id="new-password" name="new-password" required
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                        <p id="password-error" class="text-emerald-500 text-sm mt-1 hidden">Mot de passe invalide : au moins 8 caractères, incluant une lettre et un chiffre.</p>
                     </div>
                     
-                    <!-- Bouton de réinitialisation -->
+                    <!-- Confirmation du mot de passe -->
+                    <div>
+                        <label for="confirm-password" class="block text-gray-700 font-medium mb-1">Confirmer le mot de passe</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required
+                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                        <p id="confirm-error" class="text-emerald-500 text-sm mt-1 hidden">Les mots de passe ne correspondent pas.</p>
+                    </div>
+                    
+                    <!-- Bouton de validation -->
                     <div class="flex justify-center">
-                        <button class="w-fit bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-emerald-600 transition ease-in-out duration-300 cursor-pointer">
-                            Demander un nouveau mot de passe
-                        </button>
+                        <button type="submit" class="w-fit bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-emerald-600 transition ease-in-out duration-300 cursor-pointer">
+                            Réinitialiser</button>
                     </div>
-                    
-                    <!-- Lien retour connexion -->
-                    <p class="text-center text-sm text-gray-600 mt-4">Déjà un compte ?
-                        <a href="connnexion.html" class="text-emerald-500 hover:underline">Se connecter</a>
-                    </p>
                 </form>
             </div>
         </main>

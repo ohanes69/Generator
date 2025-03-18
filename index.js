@@ -24,9 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileMenu = document.getElementById("mobile-menu");
 
     function toggleMenu() {
+        // Basculer l'affichage du menu
         mobileMenu.classList.toggle("-translate-y-full");
+
+        // Basculer la visibilité des boutons
         buttonBurger.classList.toggle("hidden");
         buttonClose.classList.toggle("hidden");
+
+        // Activer/désactiver le défilement de la page
+        if (mobileMenu.classList.contains("-translate-y-full")) {
+            document.body.classList.remove("overflow-hidden"); // Réactiver le défilement
+        } else {
+            document.body.classList.add("overflow-hidden"); // Désactiver le défilement
+        }
     }
 
     // Écouteurs d'événements pour l'ouverture et la fermeture
