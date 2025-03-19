@@ -19,7 +19,9 @@ export default {
           sans: ['Montserrat', 'sans-serif'],
           inter: ['Inter', 'sans-serif'],
         },
-        
+        colors: {
+          'emerald-75': '#A7E3D4',  // Couleur personnalisée entre emerald-50 et emerald-100
+        },       
       },
     },
     plugins: [],

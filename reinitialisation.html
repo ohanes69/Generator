@@ -15,7 +15,7 @@
 <script>
   AOS.init();
 </script>
-<body class="bg-gray-100 flex flex-col">
+<body class="bg-[#D9F8EB] flex flex-col">
 
     <!-- Header -->
 
@@ -85,7 +85,7 @@
                 </div>
                 <div class="hidden md:block pr-8">
                     <a href="createaccount.html">
-                    <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400">Créer un compte</span>
+                    <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</span>
                     </a>
                 </div>       
             </div>   
@@ -131,32 +131,39 @@
          <!-- Page de réinitialisation -->
 
          <main class="container mx-auto px-4 flex items-center justify-center h-screen">
-            <div class="p-4 md:p-8 rounded-lg md:shadow-lg w-full max-w-md">
-                <h2 class="text-2xl font-semibold text-center mb-6">Réinitialisation du mot de passe</h2>
-                
-                <form id="reset-form" class="space-y-4">
-                    <!-- Nouveau mot de passe -->
-                    <div>
-                        <label for="new-password" class="block text-gray-700 font-medium mb-1">Nouveau mot de passe</label>
-                        <input type="password" id="new-password" name="new-password" required
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
-                        <p id="password-error" class="text-emerald-500 text-sm mt-1 hidden">Mot de passe invalide : au moins 8 caractères, incluant une lettre et un chiffre.</p>
-                    </div>
+            <div class="w-full max-w-md">
+                <div class="flex justify-center">
+                    <a href="index.html" class="block md:hidden mb-4">
+                        <img src="img/logo.svg" alt="billifyLogo" class="h-12">
+                    </a>
+                 </div>
+                 <div class="p-4 md:p-8 rounded-lg md:shadow-lg">
+                    <h2 class="text-2xl font-semibold text-center mb-6">Réinitialisation du mot de passe</h2>
                     
-                    <!-- Confirmation du mot de passe -->
-                    <div>
-                        <label for="confirm-password" class="block text-gray-700 font-medium mb-1">Confirmer le mot de passe</label>
-                        <input type="password" id="confirm-password" name="confirm-password" required
-                            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
-                        <p id="confirm-error" class="text-emerald-500 text-sm mt-1 hidden">Les mots de passe ne correspondent pas.</p>
-                    </div>
-                    
-                    <!-- Bouton de validation -->
-                    <div class="flex justify-center">
-                        <button type="submit" class="w-fit bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-emerald-600 transition ease-in-out duration-300 cursor-pointer">
-                            Réinitialiser</button>
-                    </div>
-                </form>
+                    <form id="reset-form" class="space-y-4">
+                        <!-- Nouveau mot de passe -->
+                        <div>
+                            <label for="new-password" class="block text-gray-700 font-medium mb-1">Nouveau mot de passe</label>
+                            <input type="password" id="new-password" name="new-password" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                            <p id="password-error" class="text-emerald-500 text-sm mt-1 hidden">Mot de passe invalide : au moins 8 caractères, incluant une lettre et un chiffre.</p>
+                        </div>
+                        
+                        <!-- Confirmation du mot de passe -->
+                        <div>
+                            <label for="confirm-password" class="block text-gray-700 font-medium mb-1">Confirmer le mot de passe</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required
+                                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                            <p id="confirm-error" class="text-emerald-500 text-sm mt-1 hidden">Les mots de passe ne correspondent pas.</p>
+                        </div>
+                        
+                        <!-- Bouton de validation -->
+                        <div class="flex justify-center">
+                            <button type="submit" class="w-fit bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-emerald-600 transition ease-in-out duration-300 cursor-pointer">
+                                Réinitialiser</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </main>
         

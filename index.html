@@ -130,27 +130,32 @@
         <!-- Presentation Page -->
          <!-- First Part -->
 
-        <main class="container mx-auto px-4 mt-28 md:mt-40">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="w-full md:w-[80%]">
-                    <div class="space-y-4 md:space-y-8" data-aos="fade-right" data-aos-duration="1000">
-                        <h1 class="text-5xl md:text-6xl text-pretty tracking-tight text-[var(--ui-text-highlighted)] font-black max-w-screen-md text-left">
-                            Créer et générer des factures ou devis avec <span class="text-emerald-500">Billify</span>
-                        </h1>
-                        <p class="text-lg text-gray-700 md:text-left">
-                            Laissez <span class="text-emerald-500">Billify</span> créer et organiser vos devis ou factures en quelques clics, en les centralisant automatiquement dans <span class="text-emerald-500">une application simple.</span>
-                        </p>
-                        <div class="flex flex-row space-x-2">
-                            <span class="inline-block rounded-3xl py-2 px-3 md:py-2 md:px-4 text-sm md:text-base bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer ma facture</span>
-                            <span class="inline-block rounded-3xl py-2 px-3 md:py-2 md:px-4 text-sm md:text-base bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer mon devis</span>
-                        </div>
-                    </div>
+        <main class="container mx-auto px-4">
+             <!-- Image en arrière-plan -->
+    <div class="absolute inset-0 -z-10">
+        <img src="img/Design sans titre.png" alt="Waves" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Contenu -->
+    <div class="flex flex-col md:flex-row items-center justify-center h-screen relative">
+        <div class="w-full md:w-[50%]">
+            <div class="space-y-4 md:space-y-8" data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1500">
+                <h1 class="text-5xl md:text-6xl text-pretty tracking-tight text-[var(--ui-text-highlighted)] font-black max-w-screen-md text-left">
+                    Créer et générer des factures ou devis avec <span class="text-emerald-500">Billify</span>
+                </h1>
+                <p class="text-lg text-black md:text-left">
+                    Laissez Billify créer et organiser vos devis ou factures en quelques clics, en les centralisant automatiquement dans une application simple.
+                </p>
+                <div class="flex flex-row space-x-2">
+                    <span class="inline-block rounded-3xl py-2 px-3 md:py-2 md:px-4 text-sm md:text-base bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer ma facture</span>
+                    <span class="inline-block rounded-3xl py-2 px-3 md:py-2 md:px-4 text-sm md:text-base bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer mon devis</span>
                 </div>
-                    <div class="flex justify-center mt-8" data-aos="fade-left" data-aos-duration="1000">
-                        <!-- First Image -->
-                        <img src="img/facture-undraw.svg" alt="phone" class="w-64 md:w-[80%] mx-auto hidden md:block">
-                    </div>
             </div>
+        </div>                    
+    </div>
+
 
             <!-- Second Part -->
 
@@ -158,7 +163,7 @@
 
                 <!-- Section Factures -->
 
-                <div class="p-6 bg-white shadow-lg rounded-2xl text-gray-700" data-aos="fade-right" data-aos-duration="1000">
+                <div class="p-6 shadow-lg rounded-2xl text-gray-700 transition duration-300 bg-emerald-50 bg-opacity-10 border border-emerald-300" data-aos="fade-right" data-aos-duration="1000">
                     <h2 class="text-2xl font-bold text-gray-900 text-center">Créer vos Factures</h2>
                     <p class="text-lg text-center mt-3">
                         Générez des <span class="font-semibold text-emerald-500">factures professionnelles</span> en quelques clics.  
@@ -175,7 +180,7 @@
 
                 <!-- Section Devis -->
 
-                <div class="p-6 bg-white shadow-lg rounded-2xl text-gray-700" data-aos="fade-left" data-aos-duration="1000">
+                <div class="p-6 shadow-lg rounded-2xl text-gray-700 transition duration-300 bg-emerald-50 bg-opacity-10 border border-emerald-300" data-aos="fade-left" data-aos-duration="1000">
                     <h2 class="text-2xl font-bold text-gray-900 text-center">Créer vos Devis</h2>
                     <p class="text-lg text-center mt-3">
                         Établissez des <span class="font-semibold text-emerald-500">devis clairs et précis</span> pour vos clients.  
@@ -245,7 +250,7 @@
 
                     <!-- Monthly -->
 
-                    <div class="bg-gray-50 rounded-2xl shadow-lg flex-1 flex flex-col justify-between h-full px-4 py-10 border border-emerald-500">
+                    <div class="bg-emerald-50 rounded-2xl shadow-lg flex-1 flex flex-col justify-between h-full px-4 py-10 border border-emerald-300">
                         <h3 class="text-3xl font-semibold text-gray-900 pl-4">Mensuel</h3>
                         <p class="text-black mt-2 text-3xl font-medium pl-4">€2.99</p>
                         <div class="flex justify-center items-center my-4">
@@ -266,7 +271,7 @@
                 
                     <!-- Yearly -->
                      
-                    <div class="bg-gray-50 rounded-2xl shadow-lg flex-1 flex flex-col justify-between h-full px-4 py-10 border border-emerald-500">
+                    <div class="bg-emerald-50 rounded-2xl shadow-lg flex-1 flex flex-col justify-between h-full px-4 py-10 border border-emerald-300">
                         <h3 class="text-3xl font-semibold text-gray-900 pl-4">Annuel</h3>
                         <p class="text-black mt-2 text-3xl font-medium pl-4">€29.99</p>
                         <div class="flex justify-center items-center my-4">
