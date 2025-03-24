@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGU & CGV</title>
+    <title>CGU</title>
     <link href="./src/output.css" rel="stylesheet">
     <script src="./cgucgv.js" defer></script>
     <!-- AOS -->
@@ -15,17 +15,17 @@
 <script>
   AOS.init();
 </script>
-<!-- #D9F8EB #D1F6E7 Gradient-color ?-->
 <body class="flex flex-col">
 
     <!-- Header -->
 
-        <header>
-            <div class="flex items-center py-3 md:pt-8 justify-between w-full border-b border-gray-200 md:pb-0 md:border-b-0 fixed top-0 bg-white/50 backdrop-blur-sm md:backdrop-blur-none md:bg-transparent z-50">
+            <header>
+                <div class="flex items-center py-3 md:pt-8 justify-between w-full border-b border-gray-200 md:pb-0 md:border-b-0 fixed top-0 bg-white/50 backdrop-blur-sm md:backdrop-blur-none md:bg-transparent z-50">
+
                 <!-- Logo -->
 
                 <a href="index.html">
-                <img src="img/logo.svg" alt="Logo" class="ml-4 md:ml-8 h-8 md:h-12">
+                <img src="img/logo.svg" alt="billifyLogo" class="ml-4 md:ml-8 h-8 md:h-12">
                 </a>
                 <!-- Icon mobile burger -->
 
@@ -81,7 +81,7 @@
 
                 <div class="hidden md:flex text-right mr-2">
                     <a href="connnexion.html">
-                        <span class="inline-block border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md">Connexion</span>
+                    <span class="inline-block border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md">Connexion</span>
                     </a>
                 </div>
                 <div class="hidden md:block pr-8">
@@ -94,9 +94,7 @@
         <!-- Mobile Sliding Menu -->
 
         <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white/50 backdrop-blur-3xl shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-50">
-
             <!-- Header du menu mobile (logo + bouton de fermeture) -->
-
             <div class="flex justify-between items-center p-3 border-b border-gray-300">
 
                 <!-- Logo -->
@@ -129,55 +127,37 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-4 flex items-center justify-center">
-        <div class="w-full max-w-3/4">
-
-            <div class="absolute inset-0 -z-10">
-                <img src="img/Design sans titre.png" alt="Waves" class="w-full h-full object-cover">
-            </div>
-            
-            <div>
-                <section class="mb-4">
-                    <h3 class="text-lg md:text-xl font-medium mb-2">Objet du site</h3>
-                    <p>Billify permet de générer des devis et factures payants pour les utilisateurs. En créant un compte, vous acceptez les présentes conditions.</p>
-                </section>
-        
-                <section class="mb-4">
-                    <h3 class="text-lg md:text-xl font-medium mb-2">Accès au service</h3>
-                    <p>Billify vous permet de générer des devis et des factures en tant qu’invité. Pour bénéficier d’une expérience complète, incluant la gestion et l’historique de vos documents, veuillez vous inscrire. Les informations sur les tarifs et abonnements seront disponibles lors de l’inscription.</p>
-                </section>
-        
-                <section class="mb-4">
-                    <h3 class="text-lg md:text-xl font-medium mb-2">Responsabilité</h3>
-                    <p>Billify n’est pas responsable des erreurs ou inexactitudes qui pourraient se retrouver dans les documents générés. Vous êtes responsable de la véracité des informations que vous soumettez.</p>
-                </section>
-        
-                <section class="mb-4">
-                    <h3 class="text-lg md:text-xl font-medium mb-2">Protection des données personnelles</h3>
-                    <p>Billify respecte la législation en vigueur en matière de protection des données personnelles. Les informations collectées sont utilisées uniquement pour la gestion des comptes et des services proposés.</p>
-                </section>
-        
-                <section class="mb-4">
-                    <h3 class="text-lg md:text-xl font-medium mb-2">Tarification & Abonnement</h3>
-                    <p>Le service de génération de devis et factures est payant. Les modalités de paiement et d’abonnement sont précisées lors de la souscription.</p>
-                </section>
-        
-                <section class="mb-4">
-                    <h3 class="text-lg md:text-xl font-medium mb-2">Modalités de paiement</h3>
-                    <p>Les paiements sont effectués par carte bancaire ou autre moyen de paiement indiqué sur le site. Les prix sont indiqués en euros et incluent toutes les taxes applicables.</p>
-                </section>
-        
-                <section class="mb-4">
-                    <h3 class="text-lg md:text-xl font-medium mb-2">Droit de rétractation</h3>
-                    <p>En raison de la nature des services fournis, il n’y a pas de droit de rétractation une fois le paiement effectué.</p>
-                </section>
-        
-                <section class="mb-4">
-                    <h3 class="text-lg md:text-xl font-medium mb-2">Support client & Réclamations</h3>
-                    <p>Pour toute question, réclamation ou support, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:billify@gmail.com" class="text-emerald-500 hover:underline">billify@gmail.com</a></p>
-                </section>
-            </div>
-            
+    <main class="relative min-h-screen flex flex-col justify-center">
+        <div class="absolute inset-0 -z-10">
+            <img src="img/Design sans titre.png" alt="Waves" class="w-full h-full object-cover">
+        </div>
+    
+        <div class="container mx-auto px-4 relative z-10 mt-20 md:mt-40 md:mb-10 md:w-3/5">
+            <h3 class="text-lg md:text-xl font-medium mb-2">Objet du site</h3>
+            <p class="text-gray-900 mb-6">Les présentes CGU définissent les règles d’utilisation du site Billify et de ses services.</p>
+    
+            <h3 class="text-lg md:text-xl font-medium mb-2">Inscription et compte utilisateur</h3>
+            <p class="text-gray-900">• L’utilisateur doit fournir des informations exactes lors de son inscription.</p>
+            <p class="text-gray-900 mb-6">• Le compte est personnel et ne peut être cédé à un tiers.</p>
+    
+            <h3 class="text-lg md:text-xl font-medium mb-2">Utilisation du service</h3>
+            <p class="text-gray-900 mb-6">L’utilisateur s’engage à utiliser le site uniquement pour la création de documents professionnels conformes à la législation.</p>
+    
+            <h3 class="text-lg md:text-xl font-medium mb-2">Responsabilité de l’utilisateur</h3>
+            <p class="text-gray-900 mb-6">L’utilisateur est seul responsable des documents générés et de leur conformité légale. <strong>Billify</strong> ne garantit pas la validité juridique des documents fournis.</p>
+    
+            <h3 class="text-lg md:text-xl font-medium mb-2">Sécurité et disponibilité</h3>
+            <p class="text-gray-900">• <strong>Billify</strong> met en œuvre des mesures de sécurité pour protéger les données des utilisateurs.</p>
+            <p class="text-gray-900 mb-6">• Le site peut être temporairement indisponible pour maintenance.</p>
+    
+            <h3 class="text-lg md:text-xl font-medium mb-2">Données personnelles</h3>
+            <p class="text-gray-900 mb-6">Les données personnelles des utilisateurs sont collectées et traitées dans le respect du RGPD.</p>
+    
+            <h3 class="text-lg md:text-xl font-medium mb-2">Modification des CGU</h3>
+            <p class="text-gray-900 mb-6">L’éditeur se réserve le droit de modifier les CGU à tout moment. Les utilisateurs seront informés des changements sur le site.</p>
+    
+            <h3 class="text-lg md:text-xl font-medium mb-2">Droit applicable et juridiction compétente</h3>
+            <p class="text-gray-900 mb-6">Les présentes CGU sont régies par le droit français. Tout litige sera soumis aux tribunaux français compétents.</p>
         </div>
     </main>
 
