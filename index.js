@@ -48,3 +48,32 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
     AOS.init();
 });
+
+// Placeholder hidden when i mouseover
+
+function hiddenPlaceHolder(inputElement) {
+    inputElement.addEventListener('focus', () => {
+        inputElement.classList.replace('placeholder:text-gray-400', 'placeholder-transparent')
+    })
+    inputElement.addEventListener('blur', () => {
+        if (inputElement.value == '')
+        {
+            inputElement.classList.replace('placeholder-transparent', 'placeholder:text-gray-400')
+        }
+    })
+}
+
+const inputFirstName = document.getElementById('firstName')
+const inputLastName = document.getElementById('lastName')
+const inputAdress = document.getElementById('inputAdress')
+const inputPhone = document.getElementById('inputPhone')
+const inputEmail = document.getElementById('inputEmail')
+const inputRef = document.getElementById('inputRef')
+
+
+hiddenPlaceHolder(inputFirstName)
+hiddenPlaceHolder(inputLastName)
+hiddenPlaceHolder(inputAdress)
+hiddenPlaceHolder(inputPhone)
+hiddenPlaceHolder(inputEmail)
+hiddenPlaceHolder(inputRef)
