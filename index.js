@@ -49,31 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
     AOS.init();
 });
 
-// Placeholder hidden when i mouseover
 
-function hiddenPlaceHolder(inputElement) {
-    inputElement.addEventListener('focus', () => {
-        inputElement.classList.replace('placeholder:text-gray-400', 'placeholder-transparent')
-    })
-    inputElement.addEventListener('blur', () => {
-        if (inputElement.value == '')
-        {
-            inputElement.classList.replace('placeholder-transparent', 'placeholder:text-gray-400')
-        }
-    })
+// Changer "choisir le fichier" en nom de l'image
+function updateFileName() {
+    const fileInput = document.getElementById('uploadLogo');
+    const fileButton = document.getElementById('fileBase');
+    
+    // Vérifier si un fichier a été sélectionné
+    if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name;
+        fileButton.textContent = fileName;  // Remplacer le texte du bouton par le nom du fichier
+    } else {
+        fileButton.textContent = 'Choisir le fichier'; // Rétablir le texte par défaut si aucun fichier n'est sélectionné
+    }
 }
-
-const inputFirstName = document.getElementById('firstName')
-const inputLastName = document.getElementById('lastName')
-const inputAdress = document.getElementById('inputAdress')
-const inputPhone = document.getElementById('inputPhone')
-const inputEmail = document.getElementById('inputEmail')
-const inputRef = document.getElementById('inputRef')
-
-
-hiddenPlaceHolder(inputFirstName)
-hiddenPlaceHolder(inputLastName)
-hiddenPlaceHolder(inputAdress)
-hiddenPlaceHolder(inputPhone)
-hiddenPlaceHolder(inputEmail)
-hiddenPlaceHolder(inputRef)

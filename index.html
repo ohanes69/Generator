@@ -292,41 +292,106 @@
                 </div>
             </div>
 
-            <!-- Facture Generator Tool -->
-
+                        <!-- Facture Generator Tool -->
             <div class="mx-auto">
-                <div class="w-3/4 bg-white rounded-2xl mb-4 border border-emerald-300">
-                    <p class="font-semibold text-gray-700">Client</p>
+                <div class="w-full bg-white rounded-lg mb-4 border border-emerald-400 p-4">
 
-                    <div class="flex flex-row space-x-4">
-                        <!-- Sélectionner client -->
-                        <div class="p-1.5 border border-gray-300 w-[22%] rounded-lg flex items-center">
-                            <p class="text-gray-400 font-semibold text-sm">Sélectionner un client</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000" class="ml-auto cursor-pointer"><path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>
-                        </div>
+                    <!-- Numéro de facture -->
+                     <div class="flex flex-row items-center gap-4">
+                        <p class="font-semibold text-gray-700 text-lg">Facture</p> 
+                        <input type="text" name="factureNumber" id="factureNumber" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Numéro de facture">
+                     </div>                   
 
-                        <!-- Créer client -->
-                        <div class="p-1.5 border border-gray-300 w-[22%] rounded-lg flex items-center">
-                            <p class="text-gray-400 font-semibold text-sm">Créer un client</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000" class="ml-auto cursor-pointer"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                        </div>
+                    <!-- Upload Logo -->
+                    <div class="mt-4">
+                        <div class="flex flex-row items-center gap-4">
+                            <label for="uploadLogo" class="font-semibold text-gray-700">Uploader un logo</label>
+                            <div class="relative w-[30%]">
+                                <!-- Input file caché -->
+                                <input id="uploadLogo" type="file" class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*" onchange="updateFileName()">
+                                <!-- Bouton personnalisé -->
+                                <button id="fileBase" type="button" class="p-1.5 border border-gray-300 rounded-lg bg-white w-full" style="color: rgba(0, 0, 0, 0.54);">
+                                    Choisir le fichier
+                                </button>
+                            </div>
+                        </div>      
                     </div>
 
-                    <!-- Informations users -->
-                     <div class="flex flex-col">
-                        <label for="inputRef" class="font-semibold text-gray-700">Référence client</label>
-                        <input id="inputRef" type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-2 focus:ring-emerald-400 focus:outline-none placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400 placeholder:text-center text-center" placeholder="Entrez votre référence"></input>
-                        <label for="firstName" class="font-semibold text-gray-700">Prénom</label>
-                        <input id="firstName" type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-2 focus:ring-emerald-400 focus:outline-none placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400 placeholder:text-center text-center" placeholder="Entrez votre prénom"></input>
-                        <label for="lastName" class="font-semibold text-gray-700">Nom</label>
-                        <input id="lastName" type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-2 focus:ring-emerald-400 focus:outline-none placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400 placeholder:text-center text-center" placeholder="Entrez votre nom"></input>
-                        <label for="inputAdress" class="font-semibold text-gray-700">Adresse</label>
-                        <input id="inputAdress" type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-2 focus:ring-emerald-400 focus:outline-none placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400 placeholder:text-center text-center" placeholder="Entrez votre adresse"></input>
-                        <label for="inputPhone" class="font-semibold text-gray-700">Téléphone</label>
-                        <input id="inputPhone" type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-2 focus:ring-emerald-400 focus:outline-none placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400 placeholder:text-center text-center" placeholder="Entrez votre téléphone"></input>
-                        <label for="inputEmail" class="font-semibold text-gray-700">E-mail</label>
-                        <input id="inputEmail" type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-2 focus:ring-emerald-400 focus:outline-none placeholder:text-sm placeholder:font-semibold placeholder:text-gray-400 placeholder:text-center text-center" placeholder="Entrez votre e-mail"></input>
-                     </div>
+                    <!-- Identification des parties -->
+                    <div class="mt-4">
+                        <p class="font-semibold text-gray-700">Informations du vendeur</p>
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Nom du vendeur">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse du vendeur">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Numéro SIRET/SIREN">
+                    </div>
+
+                    <div class="mt-4">
+                        <p class="font-semibold text-gray-700">Informations du client</p>
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Nom du client">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse du client">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[30%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse de livraison (si différente)">
+                    </div>
+
+                    <!-- Détails de la transaction -->
+                    <div class="mt-4">
+                        <p class="font-semibold text-gray-700">Détails de la transaction</p>
+                        <input type="date" id="datePicker" class="p-1.5 border border-gray-300 w-[20%] rounded-lg" placeholder="Date de la vente ou prestation">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Description du produit/service">
+                        <input type="number" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Quantité">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Prix unitaire HT">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant total HT">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="TVA (%)">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant total TTC">
+                    </div>
+
+                    <!-- Conditions de paiement -->
+                    <div class="mt-4">
+                        <p class="font-semibold text-gray-700">Conditions de paiement</p>
+                        <input type="date" class="p-1.5 border border-gray-300 w-[40%] rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-400" placeholder="Date d’échéance du règlement">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Pénalités en cas de retard">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Indemnité forfaitaire de 40 € en cas de retard">
+                    </div>
+
+                    <!-- Mode de paiement -->
+                    <div class="mt-4">
+                        <p class="font-semibold text-gray-700">Mode de paiement</p>
+                        <select class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2">
+                            <option>Virement bancaire</option>
+                            <option>Carte bancaire</option>
+                            <option>Chèque</option>
+                            <option>Espèces</option>
+                            <option>PayPal</option>
+                            <option>Autre</option>
+                        </select>
+                    </div>
+
+                    <!-- Montant net à payer -->
+                    <div class="mt-4">
+                        <p class="font-semibold text-gray-700">Montant net à payer</p>
+                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant net à payer">
+                    </div>
+
+                    <!-- Mentions légales et fiscales -->
+                    <div class="mt-4">
+                        <p class="font-semibold text-gray-700">Mentions légales et fiscales</p>
+                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Numéro de bon de commande (si applicable)">
+                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Garantie légale de conformité (si concerné)">
+                        <select class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2">
+                            <option>Livraison de biens</option>
+                            <option>Prestation de services</option>
+                            <option>Mixte</option>
+                        </select>
+                        <input type="text" class="p-1.5 border border-gray-300 w-[60%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
+                    </div>
+
+                    <!-- Exonération de TVA -->
+                    <div class="mt-4">
+                        <p class="font-semibold text-gray-700">Exonération de TVA</p>
+                        <label class="inline-flex items-center mt-2">
+                            <input type="checkbox" class="form-checkbox text-emerald-600" id="exonerationTVA">
+                            <span class="ml-2 text-gray-700">TVA non applicable, article 293 B du CGI</span>
+                        </label>
+                    </div>
                 </div>
             </div>
     </main>
