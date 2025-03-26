@@ -63,3 +63,22 @@ function updateFileName() {
         fileButton.textContent = 'Choisir le fichier'; // Rétablir le texte par défaut si aucun fichier n'est sélectionné
     }
 }
+
+// Changer le défilement de <options>
+const optionsPayment = document.getElementById('optionsPayment')
+const optionsList = document.getElementById('optionsList')
+const optionsBorder = document.getElementById('optionsBorder')
+
+optionsPayment.addEventListener('click', () => {
+    if (optionsList.classList.contains('hidden'))
+    {
+        optionsList.classList.remove('hidden')
+        optionsBorder.classList.replace('rounded-lg', 'rounded-t-lg')
+    }
+    else 
+    {
+        optionsList.classList.add('hidden')
+        optionsBorder.classList.replace('rounded-t-lg', 'rounded-lg')
+    }
+})
+

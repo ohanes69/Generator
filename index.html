@@ -12,9 +12,7 @@
 <!-- npx tailwindcss -i ./src/input.css -o ./src/output.css --watch -->
 <!-- AOS JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init();
-</script>
+<script>AOS.init();</script>
 <body class="bg-gray-100 flex flex-col">
 
     <!-- Header -->
@@ -291,110 +289,168 @@
                     </div>
                 </div>
             </div>
+    </main>
 
-                        <!-- Facture Generator Tool -->
-            <div class="mx-auto">
-                <div class="w-full bg-white rounded-lg mb-4 border border-emerald-400 p-4">
+    <!-- Facture Generator Tool -->
+    <div class="mx-auto">
+        <div class="w-full bg-white p-4">
 
-                    <!-- Numéro de facture -->
-                     <div class="flex flex-row items-center gap-4">
-                        <p class="font-semibold text-gray-700 text-lg">Facture</p> 
-                        <input type="text" name="factureNumber" id="factureNumber" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Numéro de facture">
-                     </div>                   
+            <div class="flex flex-row gap-4">
+                <!-- Sélectionner un client -->
 
-                    <!-- Upload Logo -->
-                    <div class="mt-4">
-                        <div class="flex flex-row items-center gap-4">
-                            <label for="uploadLogo" class="font-semibold text-gray-700">Uploader un logo</label>
-                            <div class="relative w-[30%]">
-                                <!-- Input file caché -->
-                                <input id="uploadLogo" type="file" class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*" onchange="updateFileName()">
-                                <!-- Bouton personnalisé -->
-                                <button id="fileBase" type="button" class="p-1.5 border border-gray-300 rounded-lg bg-white w-full" style="color: rgba(0, 0, 0, 0.54);">
-                                    Choisir le fichier
-                                </button>
-                            </div>
-                        </div>      
-                    </div>
+                <div class="p-1.5 border border-gray-300 w-1/4 rounded-lg flex items-center cursor-pointer">
+                    <p style="color: rgba(0, 0, 0, 0.54);">Sélectionner un client</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000" class="ml-auto">
+                        <path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/>
+                        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/>
+                    </svg>
+                </div>
 
-                    <!-- Identification des parties -->
-                    <div class="mt-4">
-                        <p class="font-semibold text-gray-700">Informations du vendeur</p>
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Nom du vendeur">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse du vendeur">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Numéro SIRET/SIREN">
-                    </div>
+                <!-- Créer un client -->
 
-                    <div class="mt-4">
-                        <p class="font-semibold text-gray-700">Informations du client</p>
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Nom du client">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse du client">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[30%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse de livraison (si différente)">
-                    </div>
-
-                    <!-- Détails de la transaction -->
-                    <div class="mt-4">
-                        <p class="font-semibold text-gray-700">Détails de la transaction</p>
-                        <input type="date" id="datePicker" class="p-1.5 border border-gray-300 w-[20%] rounded-lg" placeholder="Date de la vente ou prestation">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Description du produit/service">
-                        <input type="number" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Quantité">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Prix unitaire HT">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant total HT">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="TVA (%)">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant total TTC">
-                    </div>
-
-                    <!-- Conditions de paiement -->
-                    <div class="mt-4">
-                        <p class="font-semibold text-gray-700">Conditions de paiement</p>
-                        <input type="date" class="p-1.5 border border-gray-300 w-[40%] rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-400" placeholder="Date d’échéance du règlement">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Pénalités en cas de retard">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Indemnité forfaitaire de 40 € en cas de retard">
-                    </div>
-
-                    <!-- Mode de paiement -->
-                    <div class="mt-4">
-                        <p class="font-semibold text-gray-700">Mode de paiement</p>
-                        <select class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2">
-                            <option>Virement bancaire</option>
-                            <option>Carte bancaire</option>
-                            <option>Chèque</option>
-                            <option>Espèces</option>
-                            <option>PayPal</option>
-                            <option>Autre</option>
-                        </select>
-                    </div>
-
-                    <!-- Montant net à payer -->
-                    <div class="mt-4">
-                        <p class="font-semibold text-gray-700">Montant net à payer</p>
-                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant net à payer">
-                    </div>
-
-                    <!-- Mentions légales et fiscales -->
-                    <div class="mt-4">
-                        <p class="font-semibold text-gray-700">Mentions légales et fiscales</p>
-                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Numéro de bon de commande (si applicable)">
-                        <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Garantie légale de conformité (si concerné)">
-                        <select class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2">
-                            <option>Livraison de biens</option>
-                            <option>Prestation de services</option>
-                            <option>Mixte</option>
-                        </select>
-                        <input type="text" class="p-1.5 border border-gray-300 w-[60%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
-                    </div>
-
-                    <!-- Exonération de TVA -->
-                    <div class="mt-4">
-                        <p class="font-semibold text-gray-700">Exonération de TVA</p>
-                        <label class="inline-flex items-center mt-2">
-                            <input type="checkbox" class="form-checkbox text-emerald-600" id="exonerationTVA">
-                            <span class="ml-2 text-gray-700">TVA non applicable, article 293 B du CGI</span>
-                        </label>
-                    </div>
+                <div class="p-1.5 border border-gray-300 w-1/4 rounded-lg flex items-center cursor-pointer">
+                    <p style="color: rgba(0, 0, 0, 0.54);">Créer un client</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000" class="ml-auto"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
                 </div>
             </div>
-    </main>
+
+            <!-- Numéro de facture -->
+
+             <div class="mt-4">
+                <div class="flex flex-row items-center gap-4">
+                    <p class="font-semibold text-gray-700">Facture</p> 
+                    <input type="text" name="factureNumber" id="factureNumber" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Numéro de facture">
+                 </div>
+             </div>                   
+
+            <!-- Upload Logo -->
+
+            <div class="mt-4">
+                <div class="flex flex-row items-center gap-4">
+                    <label for="uploadLogo" class="font-semibold text-gray-700">Ajouter votre logo</label>
+                    <div class="relative w-[30%]">
+                        <!-- Input file caché -->
+                        <input id="uploadLogo" type="file" class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*" onchange="updateFileName()">
+                        <!-- Bouton personnalisé -->
+                        <button id="fileBase" type="button" class="p-1.5 border border-gray-300 rounded-lg bg-white w-full" style="color: rgba(0, 0, 0, 0.54);">
+                            Choisir le fichier
+                        </button>
+                    </div>
+                </div>      
+            </div>
+
+            <!-- Identification des parties -->
+
+            <div class="mt-4">
+                <p class="font-semibold text-gray-700">Informations du vendeur</p>
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Nom du vendeur">
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse du vendeur">
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Numéro SIRET/SIREN">
+            </div>
+
+            <div class="mt-4">
+                <p class="font-semibold text-gray-700">Informations du client</p>
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Nom du client">
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse du client">
+                <input type="text" class="p-1.5 border border-gray-300 w-[30%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none mt-2" placeholder="Adresse de livraison (si différente)">
+            </div>
+
+            <!-- Détails de la transaction -->
+
+            <div class="mt-4">
+                
+                <!-- Datepicker -->
+
+                <p class="font-semibold text-gray-700">Détails de la transaction</p>
+                <input class="p-1.5 border border-gray-300 w-[20%] rounded-lg" placeholder="Date de la vente ou prestation">
+                
+
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Description du produit/service">
+                <input type="number" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Quantité">
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Prix unitaire HT">
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant total HT">
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="TVA (%)">
+                <input type="text" class="p-1.5 border border-gray-300 w-[20%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant total TTC">
+            </div>
+
+            <!-- Conditions de paiement -->
+
+            <div class="mt-4">
+
+                <!-- Datepicker -->
+
+                <p class="font-semibold text-gray-700">Conditions de paiement</p>
+                <input class="p-1.5 border border-gray-300 w-[40%] rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-400" placeholder="Date d’échéance du règlement">
+
+                <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Pénalités en cas de retard">
+                <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Indemnité forfaitaire de 40 € en cas de retard">
+            </div>
+
+            <!-- Mode de paiement -->
+
+            <div class="mt-4">
+                <p class="font-semibold text-gray-700">Mode de paiement</p>
+                <div id="optionsBorder" class="p-1.5 border border-gray-300 md:w-[25%] rounded-lg mt-2 flex items-center justify-between">
+                    <p style="color: rgba(0, 0, 0, 0.54);">Ajouter un mode de paiement</p>
+                    <!-- Le bouton sera aligné à droite grâce à ml-auto -->
+                    <button id="optionsPayment" class="ml-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000" class="cursor-pointer">
+                            <path d="M24 24H0V0h24v24z" fill="none" opacity=".87"/>
+                            <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/>
+                        </svg>
+                    </button>                                                  
+                </div>
+                <div id="optionsList" class="hidden md:w-[25%] border border-gray-300 text-base text-center rounded-b-lg">
+                    <p class="p-1.5 border-b border-gray-300 cursor-pointer hover:bg-gray-100">Virement bancaire</p>
+                    <p class="p-1.5 border-b border-gray-300 cursor-pointer hover:bg-gray-100">Carte bancaire</p>
+                    <p class="p-1.5 border-b border-gray-300 cursor-pointer hover:bg-gray-100">Chèque</p>
+                    <p class="p-1.5 border-b border-gray-300 cursor-pointer hover:bg-gray-100">Espèces</p>
+                    <p class="p-1.5 border-b border-gray-300 cursor-pointer hover:bg-gray-100">PayPal</p>
+                    <p class="p-1.5 cursor-pointer hover:bg-gray-100">Autre</p>
+                </div>
+            </div>
+
+            <div class="hidden">
+                <p>Virement bancaire</p>
+                <p>Carte bancaire</p>
+                <p>Chèque</p>
+                <p>Espèces</p>
+                <p>PayPal</p>
+                <p>Autre</p>
+            </div>
+
+            <!-- Montant net à payer -->
+
+            <div class="mt-4">
+                <p class="font-semibold text-gray-700">Montant net à payer</p>
+                <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Montant net à payer">
+            </div>
+
+            <!-- Mentions légales et fiscales -->
+
+            <div class="mt-4">
+                <p class="font-semibold text-gray-700">Mentions légales et fiscales</p>
+                <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Numéro de bon de commande (si applicable)">
+                <input type="text" class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Garantie légale de conformité (si concerné)">
+                <select class="p-1.5 border border-gray-300 w-[40%] rounded-lg mt-2">
+                    <option>Livraison de biens</option>
+                    <option>Prestation de services</option>
+                    <option>Mixte</option>
+                </select>
+                <input type="text" class="p-1.5 border border-gray-300 w-[60%] rounded-lg mt-2 focus:ring-1 focus:ring-emerald-400 focus:outline-none" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
+            </div>
+
+            <!-- Exonération de TVA -->
+
+            <div class="mt-4">
+                <p class="font-semibold text-gray-700">Exonération de TVA</p>
+                <label class="inline-flex items-center mt-2">
+                    <input type="checkbox" class="form-checkbox text-emerald-600" id="exonerationTVA">
+                    <span class="ml-2 text-gray-700">TVA non applicable, article 293 B du CGI</span>
+                </label>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="h-screen bg-black">
