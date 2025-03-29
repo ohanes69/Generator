@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de factures et devis</title>
+    <link href="./src/output.css" rel="stylesheet">
+    <script src="./factures.js" defer></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<!-- npx tailwindcss -i ./src/input.css -o ./src/output.css --watch -->
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init();</script>
+<body class="bg-gray-100 flex flex-col">
+
+    <!-- Header -->
+
+            <header>
+                <div class="flex items-center py-3 md:pt-8 justify-between w-full border-b border-gray-200 md:pb-0 md:border-b-0 fixed top-0 bg-white/50 backdrop-blur-sm md:backdrop-blur-none md:bg-transparent z-50">
+
+                <!-- Logo -->
+
+                <a href="index.html">
+                <img src="img/logo.svg" alt="billifyLogo" class="ml-4 md:ml-8 h-8 md:h-12">
+                </a>
+                <!-- Icon mobile burger -->
+
+                <button id="buttonBurger" class="block text-gray-700 hover:text-black bg-transparent rounded-lg p-1 hover:bg-gray-200 focus:outline-none cursor-pointer md:hidden absolute right-0 mr-4 md:mr-8 transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+                    </svg>
+                </button>
+
+                <!-- Conteneur pour le menu -->
+
+                <div class="flex-grow flex justify-center">
+
+                    <!-- Menu (hidden on mobile, centered on desktop) -->
+                     
+                    <div class="hidden md:flex text-gray-700 bg-white rounded-3xl py-3 px-8 md:bg-white/50 md:backdrop-blur-sm md:shadow-md md:z-50">
+
+                        <!-- Accueil -->
+                    
+                        <a href="index.html" class="pr-16 cursor-pointer hover:text-emerald-500 transition duration-200 ease-in-out">Accueil</a>
+                        
+                        <!-- Facture -->
+
+                        <div class="relative group">
+                            <div class="flex items-center cursor-pointer">
+                                <p class="hover:text-emerald-500 transition duration-200 ease-in-out">Factures</p>                      
+                            </div>
+                        </div>
+
+                        <!-- Devis -->
+
+                        <div class="pl-16">
+                            <div class="relative group">
+                                <div class="flex items-center cursor-pointer">
+                                    <p class="hover:text-emerald-500 transition duration-200 ease-in-out">Devis</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Support -->
+
+                        <div class="pl-16">
+                            <div class="relative group">
+                                <div class="flex items-center cursor-pointer">
+                                    <p id="clickSupport" class="hover:text-emerald-500 transition duration-200 ease-in-out">Support</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connexion and Créer un compte (hidden on mobile, visible on desktop) -->
+
+                <div class="hidden md:flex text-right mr-2">
+                    <a href="connnexion.html">
+                    <span class="inline-block border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md">Connexion</span>
+                    </a>
+                </div>
+                <div class="hidden md:block pr-8">
+                    <a href="createaccount.html">
+                    <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md border border-black">Créer un compte</span>
+                    </a>
+                </div>       
+            </div>   
+
+        <!-- Mobile Sliding Menu -->
+
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white/50 backdrop-blur-3xl shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-50">
+            <!-- Header du menu mobile (logo + bouton de fermeture) -->
+            <div class="flex justify-between items-center p-3 border-b border-gray-300">
+
+                <!-- Logo -->
+
+                <a href="index.html" class="cursor-pointer">
+                    <img src="img/logo.svg" alt="Billify" class="h-8 w-auto">
+                </a>
+
+                <!-- Bouton de fermeture -->
+
+                <button id="buttonClose" class="text-gray-700 hover:text-black bg-transparent rounded-lg p-1 hover:bg-gray-200 focus:outline-none cursor-pointer hidden absolute right-0 mr-4 md:mr-8 transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+
+             <div>
+                <nav class="flex flex-col space-y-3 p-4">
+                <a href="index.html" class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Accueil</a>
+                <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Factures</p>
+                <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Devis</p>
+                <p id="clickSupportMobile" class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Support</p>
+                <a href="connnexion.html" class="flex justify-center border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md items-center w-1/2">Connexion</a>
+                <a href="createaccount.html" class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3 transition duration-300 ease-in-out hover:shadow-md border border-black">Créer un compte</a>
+                </nav>
+             </div>
+        </div>
+    </header>
+
+    <main class="relative min-h-screen md:px-20">
+        
+        <!-- Image en arrière-plan -->
+        <div class="absolute inset-0 -z-10">
+            <img src="img/Design sans titre-2.png" alt="Waves" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Facture Generator Tool -->
+        <div class="p-6 mt-20 md:mt-32">
+
+            <!-- Sélection Client -->
+            <div class="flex gap-4">
+                <div class="flex-1 bg-gray-50 p-3 border border-gray-300 rounded-lg flex items-center cursor-pointer">
+                    <p class="text-gray-500">Sélectionner un client</p>
+                    <svg class="ml-auto w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/>
+                    </svg>
+                </div>
+                <div class="flex-1 bg-gray-50 p-3 border border-gray-300 rounded-lg flex items-center cursor-pointer">
+                    <p class="text-gray-500">Créer un client</p>
+                    <svg class="ml-auto w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7z"/>
+                    </svg>
+                </div>
+            </div>
+        
+            <!-- Numéro de facture -->
+            <div class="mt-6">
+                <label for="factureNumber" class="block font-semibold text-gray-700">Facture</label>
+                <input type="text" id="factureNumber" class="bg-gray-50 w-full p-3 mt-2 border border-gray-300 rounded-lg focus:ring-emerald-400 focus:outline-none placeholder:text-gray-500" placeholder="Numéro de facture">
+            </div>
+        
+            <!-- Upload Logo -->
+            <div class="mt-6">
+                
+                <div class="mb-6">
+                    <label for="file_input" class="block font-semibold text-gray-700 mb-2">Télécharger un logo</label>
+                    
+                    <div class="flex items-center">
+                        <!-- Input file caché -->
+                        <input class="hidden" id="file_input" type="file">
+                        
+                        <!-- Bouton personnalisé -->
+                        <label id="fileInputBtn" class="cursor-pointer bg-emerald-500 hover:bg-emerald-600 text-white font-medium p-3 rounded-l-lg transition duration-300 ease-in-out">
+                            Choisir un fichier
+                        </label>
+                        
+                        <!-- Zone d'affichage du nom de fichier -->
+                        <div id="file_name_display" class="flex-1 p-3 border border-gray-300 rounded-r-lg bg-gray-50 text-gray-500">
+                            Aucun fichier sélectionné
+                        </div>
+                    </div>
+                    
+                </div>
+                  
+               <!-- PopUp -->
+                <div id="popUpImage" class="fixed inset-0 flex justify-center items-center z-50 bg-[rgba(0,0,0,0.2)] w-full hidden">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-[30%] h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg class="w-8 h-8 mb-4 text-emerald-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold text-emerald-500">Cliquer pour télécharger</span> ou glisser-déposer</p>
+                            <p class="text-xs text-gray-500">SVG, PNG, JPG ou GIF (MAX. 800x400px)</p>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" />
+                    </label>
+                </div> 
+ 
+            </div>
+        
+            <!-- Informations du vendeur et du client -->
+            <div class="mt-6 grid grid-cols-2 gap-6">
+                <div>
+                    <p class="font-semibold text-gray-700">Informations du vendeur</p>
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Nom du vendeur">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Adresse du vendeur">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Numéro SIRET/SIREN">
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-700">Informations du client</p>
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Nom du client">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Adresse du client">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Adresse de livraison (si différente)">
+                </div>
+            </div>
+        
+            <!-- Détails de la transaction -->
+            <p class="font-semibold text-gray-700 mt-6">Détails de la transaction</p>
+            <div class="grid grid-cols-2 gap-x-6">
+                <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Date de la vente ou prestation">
+                <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Description du produit/service">
+                <input type="number" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Quantité">
+                <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Prix unitaire HT">
+                <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Montant total HT">
+                <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="TVA (%)">
+                <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Montant total TTC">
+            </div>
+        
+            <!-- Conditions de paiement -->
+            <div class="mt-6">
+                <p class="font-semibold text-gray-700">Conditions de paiement</p>
+                <div class="flex flex-row gap-x-4">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Date d’échéance du règlement">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Pénalités en cas de retard">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Indemnité forfaitaire de 40€ en cas de retard">
+                </div>
+            </div>
+        
+            <!-- Mode de paiement -->
+            <div class="mt-6">
+                <p class="font-semibold text-gray-700">Mode de paiement</p>
+                <div class="flex w-full space-x-2 mt-2">
+                    <div id="optionsBorder" class="p-3 border border-gray-300 w-1/4 bg-gray-50 rounded-lg flex items-center justify-between">
+                        <p id="textBase" class="text-gray-500">Ajouter un mode de paiement</p>
+                        <!-- Le bouton sera aligné à droite grâce à ml-auto -->
+                        <button id="optionsPayment" class="ml-auto flex items-center">
+                            <svg class="w-5 h-5 text-gray-500 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/>
+                            </svg>
+                        </button>                                                  
+                    </div>
+                    <div id="optionsList" class="text-base text-center flex w-3/4 space-x-2">
+                            <button id="virement" class="flex-1 p-1 bg-emerald-500 text-white rounded-lg border border-transparent cursor-pointer hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-300 transition duration-300">Virement bancaire</button>
+                            <button id="carte" class="flex-1 p-1 bg-emerald-500 text-white rounded-lg border border-transparent cursor-pointer hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-300 transition duration-300">Carte bancaire</button>
+                            <button id="cheque" class="flex-1 p-1 bg-emerald-500 text-white rounded-lg border border-transparent cursor-pointer hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-300 transition duration-300">Chèque</button>
+                            <button id="espece" class="flex-1 p-1 bg-emerald-500 text-white rounded-lg border border-transparent cursor-pointer hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-300 transition duration-300">Espèces</button>
+                            <button id="paypal" class="flex-1 p-1 bg-emerald-500 text-white rounded-lg border border-transparent cursor-pointer hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-300 transition duration-300">PayPal</button>
+                            <button id="autre" class="flex-1 p-1 bg-emerald-500 text-white rounded-lg border border-transparent cursor-pointer hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-300 transition duration-300">Autre</button>             
+                    </div>
+                </div>
+            </div>
+                
+        
+            <!-- Montant net à payer -->
+            <div class="mt-6">
+                <p class="font-semibold text-gray-700">Montant net à payer</p>
+                <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Montant net à payer">
+            </div>
+
+            <div class="mt-6">
+                <p class="font-semibold text-gray-700">Mentions légales et fiscales</p>
+                <div class="flex flex-row gap-x-4">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Numéro de bon de commande (si applicable)">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Garantie légale de conformité (si concerné)">
+                    <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
+                </div>
+                <div id="optionsBorder2" class="p-3 border bg-gray-50 border-gray-300 w-[25%] rounded-lg mt-2 flex items-center justify-between">
+                    <p id="textBase2" class="text-gray-500">Type d’opération</p>
+                    <!-- Le bouton sera aligné à droite grâce à ml-auto -->
+                    <button id="optionsPayment2" class="ml-auto">
+                        <svg class="ml-auto w-5 h-5 text-gray-500 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/>
+                        </svg>
+                    </button>                                                  
+                </div>
+
+                <div id="optionsList2" class="hidden fixed inset-0 flex justify-center items-center z-50 transition-opacity bg-gray-200/75 dark:bg-gray-800/75">
+                    <div class="bg-white p-10 rounded-lg shadow-lg">
+                        <div class="flex flex-col">
+                            <button id="virement" class="p-3 bg-gray-50 border-gray-300 cursor-pointer hover:bg-gray-100">Livraison de biens</button>
+                            <button id="carte" class="p-3 bg-gray-50 border-gray-300 cursor-pointer hover:bg-gray-100">Prestation de services</button>
+                            <button id="cheque" class="p-3 bg-gray-50 border-gray-300 cursor-pointer hover:bg-gray-100">Mixte</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Exonération de TVA -->
+            
+            <div class="mt-6">
+                <p class="font-semibold text-gray-700">Exonération de TVA</p>
+                <label class="inline-flex items-center mt-2">
+                    <input type="checkbox" class="cursor-pointer form-checkbox text-emerald-600" id="exonerationTVA">
+                    <span class="ml-2 text-gray-700">TVA non applicable, article 293 B du CGI</span>
+                </label>
+            </div>
+            <div class="flex justify-center">
+                <button class="mt-6 border border-gray-500 rounded-xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md">Générer la facture</button>
+            </div>
+        </div>
+    </main>
+    <footer class="h-screen bg-black">
+        
+    </footer>
+</body>
+</html>
