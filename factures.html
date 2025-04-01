@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Générateur de factures et devis</title>
+    <title>Générateur de factures</title>
     <link href="./src/output.css" rel="stylesheet">
     <script src="./factures.js" defer></script>
+    <link href="./datepicker.css" rel="stylesheet">
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -254,8 +255,29 @@
         
             <!-- Détails de la transaction -->
             <p class="font-semibold text-gray-700 mt-6">Détails de la transaction</p>
+            <div class="relative">
+                <button id="showCalendarBtn" class="md:w-[20.7%] mt-2 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date de la vente ou prestation <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                </button>
+                    <div id="calendarContainer" class="container absolute z-50 hidden mt-2">
+                        <div class="calendar">
+                          <header>
+                            <pre class="left"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></pre>
+                            
+                            <div class="header-display">
+                              <p class="display">""</p>
+                            </div>
+                      
+                            <pre class="right"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></pre>
+                      
+                          </header>
+                  
+                          <div class="days"></div>
+                        </div>
+                    </div>
+            </div>
             <div class="grid grid-cols-2 gap-x-6">
-                <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Date de la vente ou prestation">
                 <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Description du produit/service">
                 <input type="number" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Quantité">
                 <input type="text" class="w-full bg-gray-50 p-3 mt-2 border border-gray-300 rounded-lg placeholder:text-gray-500" placeholder="Prix unitaire HT">
@@ -275,7 +297,7 @@
             </div>
 
             <!-- Button - Mode de paiement -->
-            <button id="dropdownHoverButtonFirst" data-dropdown-toggle="dropdownHoverFirst" data-dropdown-trigger="hover" class="mt-6 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Mode de paiement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <button id="dropdownHoverButtonFirst" data-dropdown-toggle="dropdownHoverFirst" data-dropdown-delay="200" data-dropdown-trigger="hover" class="mt-6 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Mode de paiement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>
                 </button>
@@ -320,7 +342,7 @@
                 </div>
 
                 <!-- Button - type d'opération -->
-                <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="mt-2 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Type d’opération <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-delay="200" data-dropdown-trigger="hover" class="mt-2 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Type d’opération <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                     </svg>
                     </button>

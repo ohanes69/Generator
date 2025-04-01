@@ -119,3 +119,130 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     })
 })
+
+// Date Picker
+let display = document.querySelector(".display");
+let days = document.querySelector(".days");
+let previous = document.querySelector(".left");
+let next = document.querySelector(".right");
+let selected = document.querySelector(".selected");
+
+let date = new Date();
+let year = date.getFullYear();
+let month = date.getMonth();
+
+function displayCalendar() {
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  
+  const numberOfDays = lastDay.getDate();
+
+  let formattedDate = date.toLocaleString("fr-FR", {
+    month: "long",
+    year: "numeric"
+  });
+
+  // Mettre la première lettre du mois en majuscule
+  formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+  display.innerHTML = `${formattedDate}`;
+
+  // Nettoyage des anciens jours
+  days.innerHTML = "";
+
+  // Ajout des jours du mois
+  for (let i = 1; i <= numberOfDays; i++) {
+    let div = document.createElement("div");
+    let currentDate = new Date(year, month, i);
+    
+    div.dataset.date = currentDate.toDateString();
+    div.innerHTML = i;
+    div.classList.add("day"); // Ajout d'une classe CSS pour le style
+    days.appendChild(div);
+
+    // Vérifier si c'est la date actuelle et ajouter une classe
+    if (
+      currentDate.getFullYear() === new Date().getFullYear() &&
+      currentDate.getMonth() === new Date().getMonth() &&
+      currentDate.getDate() === new Date().getDate()
+    ) {
+      div.classList.add("current-date");
+    }
+  }
+}
+
+// Afficher le calendrier au chargement
+displayCalendar();
+
+// Gestion de la navigation
+previous.addEventListener("click", () => {
+  month--;
+  if (month < 0) {
+    month = 11;
+    year--;
+  }
+  date.setMonth(month);
+  displayCalendar();
+  displaySelected();
+});
+
+next.addEventListener("click", () => {
+  month++;
+  if (month > 11) {
+    month = 0;
+    year++;
+  }
+  date.setMonth(month);
+  displayCalendar();
+  displaySelected();
+});
+
+// Fonction pour gérer la sélection de date
+function displaySelected() {
+  const dayElements = document.querySelectorAll(".day");
+  
+  dayElements.forEach((day) => {
+    day.addEventListener("click", (e) => {
+      // Retirer la sélection précédente
+      document.querySelectorAll(".day").forEach((day) => {
+        day.classList.remove("selected-date");
+      });
+
+      // Ajouter la classe selected-date à la date sélectionnée
+      e.target.classList.add("selected-date");
+
+      // Retirer la classe current-date de l'élément de la date actuelle
+      document.querySelectorAll(".day").forEach((day) => {
+        day.classList.remove("current-date");
+      });
+
+      const selectedDate = new Date(e.target.dataset.date);
+      const formattedDate = selectedDate.toLocaleDateString("fr-FR", {
+        weekday: "long", 
+        year: "numeric", 
+        month: "long", 
+        day: "numeric" 
+      });
+
+      selected.innerHTML = `Date sélectionnée : ${formattedDate}`;
+    });
+  });
+}
+displaySelected();
+
+// Apparition datePicker
+const showCalendarBtn = document.getElementById("showCalendarBtn");
+const calendarContainer = document.getElementById("calendarContainer");
+
+showCalendarBtn.addEventListener("click", (event) => {
+    event.stopPropagation();  // Empêche la propagation du clic
+    calendarContainer.classList.toggle("hidden");  // Affiche/masque le calendrier
+});
+
+// Masquer le calendrier lorsqu'on clique en dehors du bouton ou du calendrier
+document.addEventListener("click", (event) => {
+    if (!showCalendarBtn.contains(event.target) && !calendarContainer.contains(event.target)) {
+        calendarContainer.classList.add("hidden");
+    }
+});
+
+//

@@ -1,0 +1,99 @@
+/* Variables */
+:root {
+  --white: #fff;
+  --main: #eaedf0;
+  --accent: #10B981;
+  --accent-2: #10B981;
+}
+
+/* Styles généraux */
+.container {
+  width: 18rem;
+  background-color: var(--white);
+  border-radius: 8px;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-display {
+  display: flex;
+  align-items: center;
+}
+
+.header-display p {
+  color: var(--accent);
+  margin: 5px;
+  font-size: 1.1rem;
+  word-spacing: 0.2rem;
+}
+
+/* Navigation */
+pre {
+  padding: 10px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+/* Calendrier */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 jours par ligne */
+  gap: 2px; /* Réduit l'espace entre les chiffres */
+  justify-content: center;
+  align-items: center;
+}
+
+.days div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem; /* Réduction de la taille */
+  width: 2.5rem; /* Réduction de la taille */
+  border-radius: 50%;
+  font-size: 14px; /* Ajustement de la taille de la police */
+}
+
+/* Effet au survol */
+.days div:hover {
+  background: var(--accent-2);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Jours actuels */
+.current-date {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
+/* Date sélectionnée */
+.selected-date {
+  background-color: var(--accent);
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Suppression des cases vides */
+.invisible {
+  display: none;
+}
+
+/* Affichage de la date sélectionnée */
+.display-selected {
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+}
