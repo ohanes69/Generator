@@ -120,6 +120,9 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 })
 
+
+
+
 // Date Picker
 let display = document.querySelector(".display");
 let days = document.querySelector(".days");
@@ -229,7 +232,7 @@ function displaySelected() {
 }
 displaySelected();
 
-// Apparition datePicker
+// Apparition datePicker vente/prestation
 const showCalendarBtn = document.getElementById("showCalendarBtn");
 const calendarContainer = document.getElementById("calendarContainer");
 
@@ -245,4 +248,119 @@ document.addEventListener("click", (event) => {
     }
 });
 
-//
+
+
+
+
+
+// DatePicker 2
+let display2 = document.querySelector(".display2");
+let days2 = document.querySelector(".days2");
+let previous2 = document.querySelector(".left2");
+let next2 = document.querySelector(".right2");
+
+let date2 = new Date();
+let year2 = date.getFullYear();
+let month2 = date.getMonth();
+
+// Fonction d'affichage du calendrier
+function displayCalendar2() {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    
+    const numberOfDays = lastDay.getDate();
+    let formattedDate = date.toLocaleString("fr-FR", {
+        month: "long",
+        year: "numeric"
+    });
+
+    // Mettre la première lettre du mois en majuscule
+    formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+    display2.innerHTML = `${formattedDate}`;
+
+    // Nettoyage des anciens jours
+    days2.innerHTML = "";
+
+    // Ajout des jours du mois
+    for (let i = 1; i <= numberOfDays; i++) {
+        let div = document.createElement("div");
+        let currentDate = new Date(year, month, i);
+        
+        div.dataset.date = currentDate.toDateString();
+        div.innerHTML = i;
+        div.classList.add("day2");
+        days2.appendChild(div);
+
+        // Vérifier si c'est la date actuelle et ajouter une classe
+        if (
+            currentDate.getFullYear() === new Date().getFullYear() &&
+            currentDate.getMonth() === new Date().getMonth() &&
+            currentDate.getDate() === new Date().getDate()
+        ) {
+            div.classList.add("current-date2");
+        }
+    }
+
+    displaySelected2();
+}
+
+displayCalendar2();
+
+// Gestion de la navigation
+previous2.addEventListener("click", () => {
+    month--;
+    if (month < 0) {
+        month = 11;
+        year--;
+    }
+    date.setMonth(month);
+    displayCalendar2();
+});
+
+next2.addEventListener("click", () => {
+    month++;
+    if (month > 11) {
+        month = 0;
+        year++;
+    }
+    date.setMonth(month);
+    displayCalendar2();
+});
+
+// Fonction pour gérer la sélection de date
+function displaySelected2() {
+    const dayElements = document.querySelectorAll(".day2");
+    
+    dayElements.forEach((day) => {
+        day.addEventListener("click", (e) => {
+            // Retirer la sélection précédente
+            document.querySelectorAll(".day2").forEach((day) => {
+                day.classList.remove("selected-date2");
+            });
+
+            // Ajouter la classe selected-date à la date sélectionnée
+            e.target.classList.add("selected-date2");
+
+            // Retirer la classe current-date de l'élément de la date actuelle
+            document.querySelectorAll(".day2").forEach((day) => {
+                day.classList.remove("current-date2");
+            });
+        });
+    });
+}
+
+// Apparition datePicker échéance du règlement
+const showCalendarBtn2 = document.getElementById("showCalendarBtn2");
+const calendarContainer2 = document.getElementById("calendarContainer2");
+
+showCalendarBtn2.addEventListener("click", (event) => {
+    event.stopPropagation();  // Empêche la propagation du clic
+    calendarContainer2.classList.toggle("hidden");  // Affiche/masque le calendrier
+});
+
+// Masquer le calendrier lorsqu'on clique en dehors du bouton ou du calendrier
+document.addEventListener("click", (event) => {
+    if (!showCalendarBtn2.contains(event.target) && !calendarContainer2.contains(event.target)) {
+        calendarContainer2.classList.add("hidden");
+    }
+});

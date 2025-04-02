@@ -29,7 +29,7 @@ header {
   color: var(--accent);
   margin: 5px;
   font-size: 1.1rem;
-  word-spacing: 0.2rem;
+  word-spacing: 0rem;
 }
 
 /* Navigation */
@@ -67,14 +67,56 @@ pre {
   cursor: pointer;
 }
 
+.days2 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 jours par ligne */
+  gap: 2px; /* Réduit l'espace entre les chiffres */
+  justify-content: center;
+  align-items: center;
+}
+
+.days2 div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem; /* Réduction de la taille */
+  width: 2.5rem; /* Réduction de la taille */
+  border-radius: 50%;
+  font-size: 14px; /* Ajustement de la taille de la police */
+}
+
+/* Effet au survol */
+.days2 div:hover {
+  background: var(--accent-2);
+  color: #fff;
+  cursor: pointer;
+}
+
 /* Jours actuels */
 .current-date {
   background-color: var(--accent);
   color: var(--white);
 }
 
+.current-date2 {
+  background-color: var(--accent);
+  color: var(--white);
+}
+
 /* Date sélectionnée */
 .selected-date {
+  background-color: var(--accent);
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.selected-date2 {
   background-color: var(--accent);
   color: white;
   border-radius: 50%;
