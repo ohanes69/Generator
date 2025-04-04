@@ -16,7 +16,7 @@
 <script>AOS.init();</script>
 <!-- FlowBite -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-<body class="bg-gray-100 flex flex-col">
+<body class="bg-white flex flex-col">
 
     <!-- Header -->
 
@@ -87,7 +87,7 @@
                 </div>
                 <div class="hidden md:block pr-8">
                     <a href="createaccount.html">
-                    <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md border border-black">Créer un compte</span>
+                    <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</span>
                     </a>
                 </div>       
             </div>   
@@ -122,7 +122,7 @@
                 <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Devis</p>
                 <p id="clickSupportMobile" class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Support</p>
                 <a href="connnexion.html" class="flex justify-center border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md items-center w-1/2">Connexion</a>
-                <a href="createaccount.html" class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3 transition duration-300 ease-in-out hover:shadow-md border border-black">Créer un compte</a>
+                <a href="createaccount.html" class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</a>
                 </nav>
              </div>
         </div>
@@ -131,9 +131,9 @@
     <main class="relative min-h-screen md:px-20">
         
         <!-- Image en arrière-plan -->
-        <div class="absolute inset-0 -z-10">
+        <!-- <div class="absolute inset-0 -z-10">
             <img src="img/Design sans titre-2.png" alt="Waves" class="w-full h-full object-cover">
-        </div>
+        </div> -->
 
         <!-- Facture Generator Tool -->
         <div class="p-6 mt-20 md:mt-32">
@@ -186,107 +186,174 @@
                     Ajouter un nouveau client
                 </a>
                 </div>
-    
-        
-            <!-- Numéro de facture -->
-            <div class="mt-6">
-                <label for="factureNumber" class="block font-semibold text-gray-700">Facture</label>
-                <input type="text" id="factureNumber" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Numéro de facture">
-            </div>
-        
-            <!-- Upload Logo -->
-            <div class="mt-6">
+            
+            
+            <div class="flex flex-row gap-x-16">
+
+
+                <!-- Colonne Données du fournisseur -->
+
                 
-                <div class="mb-6">
-                    <label for="file_input" class="block font-semibold text-gray-700 mb-2">Télécharger un logo</label>
+                <div class="w-1/2">
+                    <div class="flex items-center mb-2">
+                        <div class="flex-1 border-b-0 border border-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-700 mx-3">Données du fournisseur</span>
+                        <div class="flex-1 border-b-0 border border-gray-300"></div>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex flex-row gap-x-4">
+                            <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="TechNova Solutions">
+                            <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="17 rue Solaris">
+                        </div>
+                        <div class="flex flex-row gap-x-4">
+                            <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Paris">
+                            <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="75013">
+                        </div>
+                        <div class="flex flex-row gap-x-4">
+                            <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Numéro SIRET/SIREN">
+                            <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Code NAF/APE">
+                        </div>
+                        <div class="flex flex-row gap-x-4">
+                            <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="06 98 23 77 88">
+                            <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="technova.solutions@exemple.com">
+                        </div>
+
                     
-                    <div class="flex flex-col md:flex-row md:w-1/3 space-y-2 md:space-y-0 w-full">
-                        <!-- Input file caché -->
-                        <input class="hidden" id="file_input" type="file">
+                        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 w-full mt-3">
+                            <!-- Input file caché -->
+                            <input class="hidden" id="file_input" type="file">
+                            
+                            <!-- Bouton personnalisé -->
+                            <div class="flex flex-row">
+                                <label id="fileInputBtn" class="cursor-pointer bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-5 py-2.5 text-sm rounded-lg md:rounded-l-lg md:rounded-r-none transition duration-300 ease-in-out flex items-center space-x-2">
+                                    <span>Choisir un fichier</span>
+                                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                    </svg>
+                                </label>
+                            </div>
+                            
+                            <!-- Zone d'affichage du nom de fichier -->
+                            <div id="file_name_display" class="flex-1 px-5 py-2.5 text-sm font-medium border border-gray-300 rounded-lg md:rounded-r-lg md:rounded-l-none text-gray-500">
+                                Téléversez le logo de votre entreprise
+                            </div>
+                        </div>
+                    
                         
-                        <!-- Bouton personnalisé -->
-                        <div class="flex flex-row">
-                            <label id="fileInputBtn" class="cursor-pointer bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-5 py-2.5 text-sm rounded-lg md:rounded-l-lg md:rounded-r-none transition duration-300 ease-in-out flex items-center space-x-2">
-                                <span>Choisir un fichier</span>
-                                <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                </svg>
+                       <!-- PopUp -->
+                        <div id="popUpImage" class="fixed inset-0 flex justify-center items-center z-50 bg-[rgba(0,0,0,0.2)] w-full hidden">
+                            <label for="dropzone-file" class="flex flex-col items-center justify-center md:w-[30%] h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <svg class="w-8 h-8 mb-4 text-emerald-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                    </svg>
+                                    <p class="mb-2 text-sm text-gray-500"><span class="font-semibold text-emerald-500">Cliquer pour télécharger</span> ou glisser-déposer</p>
+                                    <p class="text-xs text-gray-500">SVG, PNG, JPG ou GIF (MAX. 800x400px)</p>
+                                </div>
+                                <input id="dropzone-file" type="file" class="hidden" />
                             </label>
                         </div>
-                        
-                        <!-- Zone d'affichage du nom de fichier -->
-                        <div id="file_name_display" class="flex-1 px-5 py-2.5 text-sm font-medium border border-gray-300 rounded-lg md:rounded-r-lg md:rounded-l-none bg-gray-50 text-gray-500">
-                            Aucun fichier sélectionné
-                        </div>
                     </div>
                 </div>
-                  
-               <!-- PopUp -->
-                <div id="popUpImage" class="fixed inset-0 flex justify-center items-center z-50 bg-[rgba(0,0,0,0.2)] w-full hidden">
-                    <label for="dropzone-file" class="flex flex-col items-center justify-center md:w-[30%] h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
-                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                            <svg class="w-8 h-8 mb-4 text-emerald-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                            </svg>
-                            <p class="mb-2 text-sm text-gray-500"><span class="font-semibold text-emerald-500">Cliquer pour télécharger</span> ou glisser-déposer</p>
-                            <p class="text-xs text-gray-500">SVG, PNG, JPG ou GIF (MAX. 800x400px)</p>
-                        </div>
-                        <input id="dropzone-file" type="file" class="hidden" />
-                    </label>
-                </div> 
- 
-            </div>
-        
-            <!-- Informations du vendeur et du client -->
-            <div class="mt-6">
-                <div>
-                    <p class="font-semibold text-gray-700">Informations du vendeur</p>
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Nom du vendeur">
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Adresse du vendeur">
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Numéro SIRET/SIREN">
-                </div>
-                <div>
-                    <p class="font-semibold text-gray-700 mt-6">Informations du client</p>
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Nom du client">
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Adresse du client">
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Adresse de livraison (si différente)">
-                </div>
-            </div>
-        
-            <!-- Détails de la transaction -->
-            <p class="font-semibold text-gray-700 mt-6">Détails de la transaction</p>
-            <div class="relative">
-                <button id="showCalendarBtn" class="w-full md:w-[20.7%] mt-2 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date de la vente ou prestation <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                    </svg>
-                </button>
-                    <div id="calendarContainer" class="container absolute z-50 hidden mt-2">
-                        <div class="calendar">
-                          <header>
-                            <pre class="left"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></pre>
-                            
-                            <div class="header-display">
-                              <p class="display">""</p>
+            
+                <!-- Colonne Données du client -->
+                <div class="w-1/2">
+                    <div class="flex items-center mb-2">
+                        <div class="flex-1 border-b-0 border border-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-700 mx-3">Données du client</span>
+                        <div class="flex-1 border-b-0 border border-gray-300"></div>
+                    </div>
+                    <div class="flex flex-row gap-x-4">
+                        <div class="flex flex-col w-1/2">
+                            <div class="flex items-center">
+                                <div class="flex-1 border-b-0 border border-gray-300"></div>
+                                <span class="text-sm font-medium text-gray-700 mx-3">Professionnel</span>
+                                <div class="flex-1 border-b-0 border border-gray-300"></div>
                             </div>
-                      
-                            <pre class="right"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></pre>
-                      
-                          </header>
-                  
-                          <div class="days"></div>
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Nexora Group">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="14 rue Veltris">
+    
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Lyon">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="69007">
+    
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Numéro SIRET/SIREN">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Code NAF/APE">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="07 62 89 45 10">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="nexora.group@exemple.fr">
+                        </div>
+                        <div class="flex flex-col w-1/2">
+                            <div class="flex items-center">
+                                <div class="flex-1 border-b-0 border border-gray-300"></div>
+                                <span class="text-sm font-medium text-gray-700 mx-3">Particulier</span>
+                                <div class="flex-1 border-b-0 border border-gray-300"></div>
+                            </div>
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Pierre">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Chartier">
+    
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="42 rue des Lilas">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="44000">
+    
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Nantes">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Code NAF/APE">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="06 45 78 12 34">
+                            <input type="text" class="mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="pierre.chartier@exemple.com">
                         </div>
                     </div>
+                </div>
+            </div>
+        
+            <!-- Détails de la commande -->
+            <div class="flex items-center mb-2 mt-6">
+                <div class="flex-1 border-b-0 border border-gray-300"></div>
+                <span class="text-sm font-medium text-gray-700 mx-3">Détails de la commande</span>
+                <div class="flex-1 border-b-0 border border-gray-300"></div>
+            </div>
+            <div class="flex flex-row items-center gap-x-4">
+                <input type="text" id="factureNumber" class="text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Numéro de facture">
+                <div class="relative">
+                    <button id="showCalendarBtn" class="text-white bg-emerald-500 hover:bg-emerald-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date de la vente ou prestation <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                        <div id="calendarContainer" class="container absolute z-50 hidden mt-2 border border-gray-100">
+                            <div class="calendar">
+                            <header>
+                                <pre class="left"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></pre>
+                                
+                                <div class="header-display">
+                                <p class="display">""</p>
+                                </div>
+                        
+                                <pre class="right"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></pre>
+                        
+                            </header>
+                    
+                            <div class="days"></div>
+                            </div>
+                        </div>
+                </div>
             </div>
 
-            
-            <div class="">
-                <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Description du produit/service">
-                <input type="number" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Quantité">
-                <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Prix unitaire HT">
-                <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Montant total HT">
-                <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="TVA (%)">
-                <input type="text" class="w-full md:w-[20.7%] mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Montant total TTC">
+                        <!-- Container pour les lignes -->
+            <div id="linesContainer">
+                <!-- Ligne modèle à dupliquer -->
+                <div class="flex flex-row gap-x-4 ligne-produit">
+                <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border" placeholder="Description produit/service">
+                <input type="number" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border" placeholder="Quantité">
+                <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border" placeholder="Prix unitaire HT">
+                <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border" placeholder="Montant total HT">
+                <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border" placeholder="TVA (%)">
+                <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border" placeholder="Montant total TTC">
+                </div>
             </div>
+            
+            <!-- Bouton sous les lignes -->
+            <button id="addRow" class="mt-3 text-white bg-emerald-500 hover:bg-emerald-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">
+                Ajout d'une ligne
+                <svg xmlns="http://www.w3.org/2000/svg" class="ms-3" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF">
+                <path d="M444-288h72v-156h156v-72H516v-156h-72v156H288v72h156v156Zm36.28 192Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Zm0-312Z"/>
+                </svg>
+            </button>
         
             <!-- Conditions de paiement -->
             <div class="mt-6">
@@ -296,11 +363,11 @@
                 </div>
                 <!-- Datepicker échéance du règlement -->
                 <div class="relative">
-                    <button id="showCalendarBtn2" class="w-full md:w-[21%] mt-2 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date d’échéance du règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <button id="showCalendarBtn2" class="w-full md:w-[21%] mt-2 text-white bg-emerald-500 hover:bg-emerald-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date d’échéance du règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                         </svg>
                     </button>
-                        <div id="calendarContainer2" class="container absolute z-50 hidden mt-2">
+                        <div id="calendarContainer2" class="container absolute z-50 hidden mt-2 border border-gray-100">
                             <div class="calendar">
                               <header>
                                 <pre class="left2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></pre>
@@ -317,7 +384,7 @@
                             </div>
                         </div>
                 </div>
-                    <input type="text" class="w-full md:w-[21%] mt-3 mr-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Pénalités en cas de retard">
+                    <input type="text" class="w-full md:w-[21%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Pénalités en cas de retard">
                     <input type="text" class="w-full md:w-[27%] mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Indemnité forfaitaire de 40€ en cas de retard">
             </div>
 
@@ -358,12 +425,13 @@
                 <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Montant net à payer">
             </div>
 
+            <!-- Mentions légales et fiscales -->
             <div class="mt-6">
                 <p class="font-semibold text-gray-700">Mentions légales et fiscales</p>
-                <div class="flex flex-col md:flex-row gap-x-4">
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Numéro de bon de commande (si applicable)">
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Garantie légale de conformité (si concerné)">
-                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
+                <div class="flex flex-col md:flex-row">
+                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Numéro de bon de commande (si applicable)">
+                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Garantie légale de conformité (si concerné)">
+                    <input type="text" class="w-full md:w-[20.7%] mt-3 mr-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
                 </div>
 
                 <!-- Button - type d'opération -->
@@ -403,7 +471,7 @@
             </div>
 
             <div class="flex justify-center">
-                <button type="button" class="text-white bg-gradient-to-br from-green-400 to-red-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Générer</button>
+                <button class="flex justify-center rounded-2xl py-2 px-6 cursor-pointer transition duration-300 ease-in-out bg-emerald-500 text-white hover:bg-emerald-600 shadow-md items-center w-1/4">Générer</button>
             </div>
         </div>
     </main>

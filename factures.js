@@ -364,3 +364,18 @@ document.addEventListener("click", (event) => {
         calendarContainer2.classList.add("hidden");
     }
 });
+
+// Dupliquer les lignes pour le détail de la commande
+
+const addRowBtn = document.getElementById('addRow');
+const container = document.getElementById('linesContainer');
+
+  addRowBtn.addEventListener('click', () => {
+    const firstRow = container.querySelector('.ligne-produit');
+    const newRow = firstRow.cloneNode(true);
+
+    // Réinitialise les valeurs des inputs
+    newRow.querySelectorAll('input').forEach(input => input.value = '');
+
+    container.appendChild(newRow);
+  });
