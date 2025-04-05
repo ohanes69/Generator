@@ -332,6 +332,9 @@
                             </div>
                         </div>
                 </div>
+                <div class="">
+                    <input type="text" class="w-full text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border">
+                </div>
             </div>
 
                         <!-- Container pour les lignes -->
@@ -357,66 +360,86 @@
         
             <!-- Conditions de paiement -->
             <div class="mt-6">
-                <p class="font-semibold text-gray-700">Conditions de paiement</p>
-                <div class="flex flex-col md:flex-row">
-
+                <div class="w-1/2">
+                    <div class="flex items-center mb-2">
+                        <div class="flex-1 border-b-0 border border-gray-300"></div>
+                        <span class="text-sm font-medium text-gray-700 mx-3">Conditions de paiement</span>
+                        <div class="flex-1 border-b-0 border border-gray-300"></div>
+                    </div>
                 </div>
+                
+
+
                 <!-- Datepicker échéance du règlement -->
-                <div class="relative">
-                    <button id="showCalendarBtn2" class="w-full md:w-[21%] mt-2 text-white bg-emerald-500 hover:bg-emerald-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date d’échéance du règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                        </svg>
-                    </button>
-                        <div id="calendarContainer2" class="container absolute z-50 hidden mt-2 border border-gray-100">
-                            <div class="calendar">
-                              <header>
-                                <pre class="left2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></pre>
+                <div class="w-1/2">
+                    <div class="flex flex-row justify-center gap-x-4">
+                        <div class="relative">
+                            <button id="showCalendarBtn2" class="w-full text-white bg-emerald-500 hover:bg-emerald-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date d’échéance du règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                                </svg>
+                            </button>
+                            <div id="calendarContainer2" class="container absolute z-50 hidden mt-2 border border-gray-100">
+                                <div class="calendar">
+                                    <header>
+                                    <pre class="left2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></pre>
+                                    
+                                    <div class="header-display">
+                                        <p class="display2">""</p>
+                                    </div>
                                 
-                                <div class="header-display">
-                                  <p class="display2">""</p>
+                                    <pre class="right2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></pre>
+                                
+                                    </header>
+                            
+                                    <div class="days2"></div>
                                 </div>
-                          
-                                <pre class="right2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></pre>
-                          
-                              </header>
-                      
-                              <div class="days2"></div>
                             </div>
                         </div>
-                </div>
-                    <input type="text" class="w-full md:w-[21%] mt-3 mr-2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Pénalités en cas de retard">
-                    <input type="text" class="w-full md:w-[27%] mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500" placeholder="Indemnité forfaitaire de 40€ en cas de retard">
-            </div>
+                        <!-- Button - Mode de paiement -->
+                        <button id="dropdownHoverButtonFirst" data-dropdown-toggle="dropdownHoverFirst" data-dropdown-delay="200" data-dropdown-trigger="hover" class="text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Choix du mode de règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </button>
+                            
+                            <!-- Dropdown menu -->
+                            <div id="dropdownHoverFirst" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-64">
+                                <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButtonFirst">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Virement bancaire</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Carte bancaire</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Espèces</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Chèque</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">PayPal</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Autre</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Button - Mode de paiement -->
-            <button id="dropdownHoverButtonFirst" data-dropdown-toggle="dropdownHoverFirst" data-dropdown-delay="200" data-dropdown-trigger="hover" class="mt-6 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Mode de paiement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg>
-                </button>
-                
-                <!-- Dropdown menu -->
-                <div id="dropdownHoverFirst" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
-                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButtonFirst">
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Virement bancaire</a>
-                      </li>
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Carte bancaire</a>
-                      </li>
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Chèque</a>
-                      </li>
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Espèces</a>
-                      </li>
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">PayPal</a>
-                      </li>
-                      <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Autre</a>
-                      </li>
-                    </ul>
+                    <div class="w-1/2 flex flex-row gap-x-4">
+                        <input id="datepickerPaiement" type="text" class="hidden w-1/2 mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border">
+                        <input id="ChoicePaiement" type="text" class="hidden w-1/2 mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border">
+                    </div>
+
+                    <div class="w-1/2 flex flex-row justify-center">
+                        <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border" placeholder="Pénalités en cas de retard">
+                        <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border" placeholder="Indemnité forfaitaire de 40€ en cas de retard">
+                    </div>
                 </div>
+    
+    
+                
                 
         
             <!-- Montant net à payer -->

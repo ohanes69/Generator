@@ -379,3 +379,23 @@ const container = document.getElementById('linesContainer');
 
     container.appendChild(newRow);
   });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const choixLinks = document.querySelectorAll("#dropdownHoverFirst a");
+    const inputChoice = document.getElementById("ChoicePaiement");
+
+    choixLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault(); // empêche le saut en haut de page
+
+        const selectedText = this.textContent;
+
+        // Affiche l'input s’il est caché
+        inputChoice.classList.remove("hidden");
+
+        // Met à jour la valeur de l’input
+        inputChoice.value = selectedText;
+      });
+    });
+  });
