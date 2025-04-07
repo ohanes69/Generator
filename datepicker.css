@@ -48,6 +48,7 @@ pre {
   gap: 2px; /* Réduit l'espace entre les chiffres */
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .days div {
@@ -73,6 +74,7 @@ pre {
   gap: 2px; /* Réduit l'espace entre les chiffres */
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .days2 div {

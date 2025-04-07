@@ -381,6 +381,7 @@ const container = document.getElementById('linesContainer');
   });
 
 
+// Choisir une des options de paiement
   document.addEventListener("DOMContentLoaded", function () {
     const choixLinks = document.querySelectorAll("#dropdownHoverFirst a");
     const inputChoice = document.getElementById("ChoicePaiement");
@@ -398,4 +399,37 @@ const container = document.getElementById('linesContainer');
         inputChoice.value = selectedText;
       });
     });
+  });
+
+  // Choisir une des options de type d'opération
+  document.addEventListener("DOMContentLoaded", function () {
+    const typeLinks = document.querySelectorAll("#dropdownHover a");
+    const typeInput = document.getElementById("TypeOperationInput");
+
+    typeLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const selectedType = this.textContent;
+
+        typeInput.classList.remove("hidden");
+        typeInput.value = selectedType;
+      });
+    });
+  });
+
+
+// Calendrier - Date de la vente ou prestation
+
+document.querySelector('calendar-date').addEventListener('change', function () {
+    const date = this.value;
+    const button = document.getElementById('cally1');
+    const label = document.getElementById('cally-label');
+
+    // Met à jour uniquement le texte
+    label.textContent = date;
+
+    // Change les classes du bouton
+    button.className =
+      "text-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer gap-2 border border-gray-300";
   });
