@@ -17,6 +17,7 @@ clickSupportMobile.addEventListener('click', () => {
     }
 })
 
+
 // MenuVersionDesk&Mob
 document.addEventListener("DOMContentLoaded", function () {
     const buttonBurger = document.getElementById("buttonBurger");
@@ -44,10 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
     buttonClose.addEventListener("click", toggleMenu);
 });
 
+
 // Pour le scrool, CDN
 document.addEventListener("DOMContentLoaded", () => {
     AOS.init();
 });
+
 
 // PopUp > add files
 document.addEventListener("DOMContentLoaded", function() {
@@ -65,28 +68,31 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     function handleFileSelection(file) {
-        if (file) {
-            fileNameDisplay.textContent = file.name
-            fileNameDisplay.classList.add("text-black")
-
-            // Afficher l'aperçu si c'est une image
-            if (file.type.startsWith("image/")) {
-                const reader = new FileReader()
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result
-                    filePreview.classList.remove("hidden") // Afficher l'aperçu
-                }
-                reader.readAsDataURL(file)
-            } else {
-                previewImage.src = "" // Supprimer l'image si ce n'est pas une image
-                filePreview.classList.add("hidden")
-            }
-        } else {
-            fileNameDisplay.textContent = "Aucun fichier sélectionné"
-            filePreview.classList.add("hidden")
-        }
-        popUp.classList.add("hidden")
-    }
+      if (file) {
+          fileNameDisplay.textContent = file.name;
+          fileNameDisplay.classList.remove("text-gray-500"); // Supprimer gris
+          fileNameDisplay.classList.add("text-black"); // Ajouter noir
+  
+          // Afficher l'aperçu si c'est une image
+          if (file.type.startsWith("image/")) {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                  previewImage.src = e.target.result;
+                  filePreview.classList.remove("hidden"); // Afficher l'aperçu
+              };
+              reader.readAsDataURL(file);
+          } else {
+              previewImage.src = ""; // Supprimer l'image si ce n'est pas une image
+              filePreview.classList.add("hidden");
+          }
+      } else {
+          fileNameDisplay.textContent = "Aucun fichier sélectionné";
+          fileNameDisplay.classList.remove("text-black");
+          fileNameDisplay.classList.add("text-gray-500");
+          filePreview.classList.add("hidden");
+      }
+      popUp.classList.add("hidden");
+  }
 
     fileInput.addEventListener("change", function() {
         handleFileSelection(fileInput.files[0])
@@ -121,252 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 
-
-
-// Date Picker
-let display = document.querySelector(".display");
-let days = document.querySelector(".days");
-let previous = document.querySelector(".left");
-let next = document.querySelector(".right");
-let selected = document.querySelector(".selected");
-
-let date = new Date();
-let year = date.getFullYear();
-let month = date.getMonth();
-
-function displayCalendar() {
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
-  
-  const numberOfDays = lastDay.getDate();
-
-  let formattedDate = date.toLocaleString("fr-FR", {
-    month: "long",
-    year: "numeric"
-  });
-
-  // Mettre la première lettre du mois en majuscule
-  formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
-  display.innerHTML = `${formattedDate}`;
-
-  // Nettoyage des anciens jours
-  days.innerHTML = "";
-
-  // Ajout des jours du mois
-  for (let i = 1; i <= numberOfDays; i++) {
-    let div = document.createElement("div");
-    let currentDate = new Date(year, month, i);
-    
-    div.dataset.date = currentDate.toDateString();
-    div.innerHTML = i;
-    div.classList.add("day"); // Ajout d'une classe CSS pour le style
-    days.appendChild(div);
-
-    // Vérifier si c'est la date actuelle et ajouter une classe
-    if (
-      currentDate.getFullYear() === new Date().getFullYear() &&
-      currentDate.getMonth() === new Date().getMonth() &&
-      currentDate.getDate() === new Date().getDate()
-    ) {
-      div.classList.add("current-date");
-    }
-  }
-}
-
-// Afficher le calendrier au chargement
-displayCalendar();
-
-// Gestion de la navigation
-previous.addEventListener("click", () => {
-  month--;
-  if (month < 0) {
-    month = 11;
-    year--;
-  }
-  date.setMonth(month);
-  displayCalendar();
-  displaySelected();
-});
-
-next.addEventListener("click", () => {
-  month++;
-  if (month > 11) {
-    month = 0;
-    year++;
-  }
-  date.setMonth(month);
-  displayCalendar();
-  displaySelected();
-});
-
-// Fonction pour gérer la sélection de date
-function displaySelected() {
-  const dayElements = document.querySelectorAll(".day");
-  
-  dayElements.forEach((day) => {
-    day.addEventListener("click", (e) => {
-      // Retirer la sélection précédente
-      document.querySelectorAll(".day").forEach((day) => {
-        day.classList.remove("selected-date");
-      });
-
-      // Ajouter la classe selected-date à la date sélectionnée
-      e.target.classList.add("selected-date");
-
-      // Retirer la classe current-date de l'élément de la date actuelle
-      document.querySelectorAll(".day").forEach((day) => {
-        day.classList.remove("current-date");
-      });
-
-      const selectedDate = new Date(e.target.dataset.date);
-      const formattedDate = selectedDate.toLocaleDateString("fr-FR", {
-        weekday: "long", 
-        year: "numeric", 
-        month: "long", 
-        day: "numeric" 
-      });
-
-      selected.innerHTML = `Date sélectionnée : ${formattedDate}`;
-    });
-  });
-}
-displaySelected();
-
-// Apparition datePicker vente/prestation
-const showCalendarBtn = document.getElementById("showCalendarBtn");
-const calendarContainer = document.getElementById("calendarContainer");
-
-showCalendarBtn.addEventListener("click", (event) => {
-    event.stopPropagation();  // Empêche la propagation du clic
-    calendarContainer.classList.toggle("hidden");  // Affiche/masque le calendrier
-});
-
-// Masquer le calendrier lorsqu'on clique en dehors du bouton ou du calendrier
-document.addEventListener("click", (event) => {
-    if (!showCalendarBtn.contains(event.target) && !calendarContainer.contains(event.target)) {
-        calendarContainer.classList.add("hidden");
-    }
-});
-
-
-
-
-
-
-// DatePicker 2
-let display2 = document.querySelector(".display2");
-let days2 = document.querySelector(".days2");
-let previous2 = document.querySelector(".left2");
-let next2 = document.querySelector(".right2");
-
-let date2 = new Date();
-let year2 = date.getFullYear();
-let month2 = date.getMonth();
-
-// Fonction d'affichage du calendrier
-function displayCalendar2() {
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    
-    const numberOfDays = lastDay.getDate();
-    let formattedDate = date.toLocaleString("fr-FR", {
-        month: "long",
-        year: "numeric"
-    });
-
-    // Mettre la première lettre du mois en majuscule
-    formattedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
-    display2.innerHTML = `${formattedDate}`;
-
-    // Nettoyage des anciens jours
-    days2.innerHTML = "";
-
-    // Ajout des jours du mois
-    for (let i = 1; i <= numberOfDays; i++) {
-        let div = document.createElement("div");
-        let currentDate = new Date(year, month, i);
-        
-        div.dataset.date = currentDate.toDateString();
-        div.innerHTML = i;
-        div.classList.add("day2");
-        days2.appendChild(div);
-
-        // Vérifier si c'est la date actuelle et ajouter une classe
-        if (
-            currentDate.getFullYear() === new Date().getFullYear() &&
-            currentDate.getMonth() === new Date().getMonth() &&
-            currentDate.getDate() === new Date().getDate()
-        ) {
-            div.classList.add("current-date2");
-        }
-    }
-
-    displaySelected2();
-}
-
-displayCalendar2();
-
-// Gestion de la navigation
-previous2.addEventListener("click", () => {
-    month--;
-    if (month < 0) {
-        month = 11;
-        year--;
-    }
-    date.setMonth(month);
-    displayCalendar2();
-});
-
-next2.addEventListener("click", () => {
-    month++;
-    if (month > 11) {
-        month = 0;
-        year++;
-    }
-    date.setMonth(month);
-    displayCalendar2();
-});
-
-// Fonction pour gérer la sélection de date
-function displaySelected2() {
-    const dayElements = document.querySelectorAll(".day2");
-    
-    dayElements.forEach((day) => {
-        day.addEventListener("click", (e) => {
-            // Retirer la sélection précédente
-            document.querySelectorAll(".day2").forEach((day) => {
-                day.classList.remove("selected-date2");
-            });
-
-            // Ajouter la classe selected-date à la date sélectionnée
-            e.target.classList.add("selected-date2");
-
-            // Retirer la classe current-date de l'élément de la date actuelle
-            document.querySelectorAll(".day2").forEach((day) => {
-                day.classList.remove("current-date2");
-            });
-        });
-    });
-}
-
-// Apparition datePicker échéance du règlement
-const showCalendarBtn2 = document.getElementById("showCalendarBtn2");
-const calendarContainer2 = document.getElementById("calendarContainer2");
-
-showCalendarBtn2.addEventListener("click", (event) => {
-    event.stopPropagation();  // Empêche la propagation du clic
-    calendarContainer2.classList.toggle("hidden");  // Affiche/masque le calendrier
-});
-
-// Masquer le calendrier lorsqu'on clique en dehors du bouton ou du calendrier
-document.addEventListener("click", (event) => {
-    if (!showCalendarBtn2.contains(event.target) && !calendarContainer2.contains(event.target)) {
-        calendarContainer2.classList.add("hidden");
-    }
-});
-
 // Dupliquer les lignes pour le détail de la commande
-
 const addRowBtn = document.getElementById('addRow');
 const container = document.getElementById('linesContainer');
 
@@ -381,29 +142,9 @@ const container = document.getElementById('linesContainer');
   });
 
 
-// Choisir une des options de paiement
+  // Choix Multiple : Choisir une des options de type d'opération
   document.addEventListener("DOMContentLoaded", function () {
-    const choixLinks = document.querySelectorAll("#dropdownHoverFirst a");
-    const inputChoice = document.getElementById("ChoicePaiement");
-
-    choixLinks.forEach(link => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault(); // empêche le saut en haut de page
-
-        const selectedText = this.textContent;
-
-        // Affiche l'input s’il est caché
-        inputChoice.classList.remove("hidden");
-
-        // Met à jour la valeur de l’input
-        inputChoice.value = selectedText;
-      });
-    });
-  });
-
-  // Choisir une des options de type d'opération
-  document.addEventListener("DOMContentLoaded", function () {
-    const typeLinks = document.querySelectorAll("#dropdownHover a");
+    const typeLinks = document.querySelectorAll("#dropdown a");
     const typeInput = document.getElementById("TypeOperationInput");
 
     typeLinks.forEach(link => {
@@ -419,17 +160,56 @@ const container = document.getElementById('linesContainer');
   });
 
 
-// Calendrier - Date de la vente ou prestation
+// Choix Multiple : Choisir une des options de paiement
+document.addEventListener("DOMContentLoaded", function () {
+  const choixLinks = document.querySelectorAll("#dropdownFirst a");
+  const inputChoice = document.getElementById("ChoicePaiement");
 
-document.querySelector('calendar-date').addEventListener('change', function () {
-    const date = this.value;
-    const button = document.getElementById('cally1');
-    const label = document.getElementById('cally-label');
+  choixLinks.forEach(link => {
+  link.addEventListener("click", function (e) {
+      e.preventDefault(); // empêche le saut en haut de page
 
-    // Met à jour uniquement le texte
-    label.textContent = date;
+      const selectedText = this.textContent;
 
-    // Change les classes du bouton
-    button.className =
-      "text-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer gap-2 border border-gray-300";
+      // Affiche l'input s’il est caché
+      inputChoice.classList.remove("hidden");
+
+      // Met à jour la valeur de l’input
+      inputChoice.value = selectedText;
   });
+  });
+});
+
+
+// DatePicker - Date de la vente ou prestation
+document.querySelector('calendar-date').addEventListener('change', function () {
+  const date = this.value;
+  const button = document.getElementById('cally1');
+  const label = document.getElementById('cally-label');
+  const icon = document.getElementById('calendar-icon'); // Sélectionne l'icône
+
+  // Met à jour uniquement le texte
+  label.textContent = date;
+
+  // Masque l'icône après sélection de la date
+  icon.style.display = 'none';
+
+  // Change les classes du bouton
+  button.className =
+    "text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer gap-2 border border-gray-300";
+});
+
+
+// DatePicker - Date d'échéance du règlement
+document.querySelector('#cally-popover2 calendar-date').addEventListener('change', function () {
+  const date = this.value;
+  const button = document.getElementById('cally2');
+  const label = document.getElementById('cally-label2');
+  const icon = document.getElementById('calendar-icon2');
+
+  label.textContent = date;
+  icon.style.display = 'none';
+
+  button.className =
+    "text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer gap-2 border border-gray-300";
+});

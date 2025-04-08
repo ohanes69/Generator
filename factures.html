@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Générateur de factures</title>
-    <link href="./src/output.css" rel="stylesheet">
+    <link href="./src/output-daisy.css" rel="stylesheet">
     <script src="./factures.js" defer></script>
     <link href="./datepicker.css" rel="stylesheet">
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<!-- npx tailwindcss -i ./src/input.css -o ./src/output.css --watch -->
+<!-- npx tailwindcss -i ./src/input-daisy.css -o ./src/output-daisy.css --watch -->
 <!-- AOS JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>AOS.init();</script>
 <!-- FlowBite -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-<body class="bg-white flex flex-col">
 <!-- DaisyUI calendar -->
 <script type="module" src="https://unpkg.com/cally"></script>
+<body class="bg-white flex flex-col">
 
     <!-- Header -->
 
@@ -310,36 +310,46 @@
                 <span class="text-sm font-medium text-gray-700 mx-3">Détails de la commande</span>
                 <div class="flex-1 border-b-0 border border-gray-300"></div>
             </div>
-            <div class="flex flex-row items-center gap-x-4">
-                <input type="text" id="factureNumber" class="text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Numéro de facture">
-                <div class="relative">
-                    <button id="showCalendarBtn" class="text-white bg-emerald-500 hover:bg-emerald-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date de la vente ou prestation <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                        </svg>
-                    </button>
-                        <div id="calendarContainer" class="container absolute z-50 hidden mt-2 border border-gray-100">
-                            <div class="calendar">
-                            <header>
-                                <pre class="left"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></pre>
-                                
-                                <div class="header-display">
-                                <p class="display">""</p>
-                                </div>
-                        
-                                <pre class="right"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></pre>
-                        
-                            </header>
-                    
-                            <div class="days"></div>
-                            </div>
-                        </div>
-                </div>
-                <div class="">
-                    <input type="text" class="w-full text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none">
+            <div>
+                <input
+                  type="text"
+                  id="factureNumber"
+                  class="text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none"
+                  placeholder="Numéro de facture"
+                >
+              
+                <button
+                  id="cally1"
+                  class="text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2 cursor-pointer"
+                  popovertarget="cally-popover1"
+                  style="anchor-name:--cally1"
+                >
+                  <span id="cally-label">Date de la vente ou prestation</span>
+                  <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6" id="calendar-icon">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                  </svg>
+                </button>
+              
+                <div
+                  id="cally-popover1"
+                  popover
+                  class="dropdown bg-base-100 rounded-box shadow-lg"
+                  style="position-anchor:--cally1"
+                >
+                  <calendar-date class="cally">
+                    <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+                    </svg>
+                    <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+                    </svg>
+                    <calendar-month></calendar-month>
+                  </calendar-date>
                 </div>
             </div>
 
-                        <!-- Container pour les lignes -->
+
+            <!-- Container pour les lignes -->
             <div id="linesContainer">
                 <!-- Ligne modèle à dupliquer -->
                 <div class="flex flex-row gap-x-4 ligne-produit">
@@ -374,74 +384,79 @@
 
                 <!-- Datepicker échéance du règlement -->
                 <div class="w-1/2">
-                    <div class="flex flex-row">
-                        <div class="relative">
-                            <button id="showCalendarBtn2" class="text-white bg-emerald-500 hover:bg-emerald-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer">Date d’échéance du règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                                </svg>
-                            </button>
-                            <div id="calendarContainer2" class="container absolute z-50 hidden mt-2 border border-gray-100">
-                                <div class="calendar">
-                                    <header>
-                                        <pre class="left2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></pre>
-                                        
-                                        <div class="header-display">
-                                            <p class="display2">""</p>
-                                        </div>
-                                    
-                                        <pre class="right2"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></pre>
-                                
-                                    </header>
-                            
-                                    <div class="days2"></div>
-                                </div>
-                            </div>
+                    <div>
+                        <button
+                          id="cally2"
+                          class="text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center gap-2"
+                          popovertarget="cally-popover2"
+                          style="anchor-name:--cally2"
+                        >
+                          <span id="cally-label2">Date d’échéance du règlement</span>
+                          <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6" id="calendar-icon2">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                          </svg>
+                        </button>
+                      
+                        <div
+                          id="cally-popover2"
+                          popover
+                          class="dropdown bg-base-100 rounded-box shadow-lg"
+                          style="position-anchor:--cally2"
+                        >
+                          <calendar-date class="cally">
+                            <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+                            </svg>
+                            <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+                            </svg>
+                            <calendar-month></calendar-month>
+                          </calendar-date>
                         </div>
-                        <input id="datepickerPaiement" type="text" class=" w-1/2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-4 py-2 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none">
-                    </div>
-
-                    
+                      </div>
+                    </div>               
 
 
-                        <!-- Button - Mode de paiement -->
-                        <div>
-                            <button id="dropdownHoverButtonFirst" data-dropdown-toggle="dropdownHoverFirst" data-dropdown-delay="200" data-dropdown-trigger="hover" class="text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Choix du mode de règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <!-- Button - Mode de paiement -->
+                    <div class="flex flex-row mt-3">
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdownFirst" class="mr-3 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Choix du mode de règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                             </svg>
-                        </button>
+                            </button>
                             
-                            <!-- Dropdown menu -->
-                        <div id="dropdownHoverFirst" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-64">
-                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButtonFirst">
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Virement bancaire</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Carte bancaire</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Espèces</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Chèque</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">PayPal</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Autre</a>
-                            </li>
-                            </ul>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownFirst" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Virement bancaire</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Carte bancaire</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Espèces</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Chèque</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">PayPal</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Autre</a>
+                                </li>
+                                </ul>
                         </div>
-                            <input id="ChoicePaiement" type="text" class="w-1/2 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none">
+                            <input id="ChoicePaiement" type="text" class="hidden w-1/6 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 focus:ring-2 focus:ring-emerald-500 border-gray-300 border">
                         </div>
+                    </div>
 
                     
-                    <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Pénalités en cas de retard">
-                    <div class="flex items-center">
-                        <input type="checkbox" checked="checked" class="toggle toggle-success mr-2">
-                        <p class="font-medium text-gray-900">Indemnité forfaitaire de 40€ en cas de retard</p>
-                    </div>
+                        <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Pénalités en cas de retard">
+                        <div class="flex items-center">
+                            <input type="checkbox" checked="checked" class="toggle toggle-success mr-2">
+                            <p class="font-medium text-gray-900">Indemnité forfaitaire de 40€ en cas de retard</p>
+                        </div>
                     
                 </div>
     
@@ -464,28 +479,30 @@
                     <input type="text" class="w-full mt-3 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 placeholder:text-gray-500 focus:ring-2 focus:ring-emerald-500 border-gray-300 border focus:border-none" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
                 </div>
 
+
                 <!-- Button - type d'opération -->
-                <div class="flex flex-row gap-x-4 mt-2">
-                    <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-delay="200" data-dropdown-trigger="hover" class="text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Type d’opération <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <div class="flex flex-row mt-3">
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="mr-3 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" type="button">Type d’opération <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                         </svg>
                         </button>
                         
-                        <!-- Dropdown menu -->
-                        <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
-                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
-                              <li>
+                    <!-- Dropdown menu -->
+                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
+                            <li>
                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100">Livraison de biens</a>
-                              </li>
-                              <li>
+                            </li>
+                            <li>
                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100">Prestation de services</a>
-                              </li>
-                              <li>
+                            </li>
+                            <li>
                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100">Mixte</a>
-                              </li>
-                            </ul>
-                        </div>
+                            </li>
+                        </ul>
+                    </div>
                         <input id="TypeOperationInput" type="text" class="hidden w-1/6 text-black bg-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 focus:ring-2 focus:ring-emerald-500 border-gray-300 border">
+                    </div>
                 </div>
             </div>
             
@@ -505,23 +522,10 @@
         </div>
     </main>
 
-    <footer class="h-screen bg-white">
-        <button id="cally1" class="text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer" popovertarget="cally-popover1" style="anchor-name:--cally1">
-            Date de la vente ou prestation <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg>
-          </button>
+    <footer class="h-screen bg-black">
+        
 
           
-          
-          <div id="cally-popover1" popover class="dropdown bg-base-100 rounded-box shadow-lg" style="position-anchor:--cally1">
-            <calendar-date class="cally">
-              <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.75 19.5 8.25 12l7.5-7.5"></path></svg>
-              <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg>
-              <calendar-month></calendar-month>
-            </calendar-date>
-          </div>
-
     </footer>
 </body>
 </html>
