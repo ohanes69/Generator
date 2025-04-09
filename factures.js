@@ -187,6 +187,8 @@ document.querySelector('calendar-date').addEventListener('change', function () {
   const button = document.getElementById('cally1');
   const label = document.getElementById('cally-label');
   const icon = document.getElementById('calendar-icon'); // Sélectionne l'icône
+  const input = document.querySelector('#cally-popover1').parentElement.querySelector('input');
+
 
   // Met à jour uniquement le texte
   label.textContent = date;
@@ -202,14 +204,15 @@ document.querySelector('calendar-date').addEventListener('change', function () {
 
 // DatePicker - Date d'échéance du règlement
 document.querySelector('#cally-popover2 calendar-date').addEventListener('change', function () {
-  const date = this.value;
-  const button = document.getElementById('cally2');
-  const label = document.getElementById('cally-label2');
-  const icon = document.getElementById('calendar-icon2');
-
-  label.textContent = date;
-  icon.style.display = 'none';
-
-  button.className =
-    "text-black font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center cursor-pointer gap-2 border border-gray-300";
-});
+    const date = this.value;
+    const button = document.getElementById('cally2');
+    const label = document.getElementById('cally-label2');
+    const icon = document.getElementById('calendar-icon2');
+    const input = document.querySelector('#cally-popover2').parentElement.querySelector('input');
+  
+    input.value = date;
+    icon.style.display = 'none';
+  
+    // Affiche l'input
+    input.classList.remove('hidden');
+  });
