@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Vérification du mot de passe
     passwordInput.addEventListener("input", function () {
-        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?":{}|<>_+={}\[\]~`-]{8,}$/;
         if (!passwordRegex.test(passwordInput.value)) {
             passwordError.classList.remove("hidden");
         } else {
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
         let isValid = true;
 
-        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(passwordInput.value)) {
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?":{}|<>_+={}\[\]~`-]{8,}$/.test(passwordInput.value)) {
             passwordError.classList.remove("hidden");
             isValid = false;
         } else {
@@ -99,3 +99,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+// Afficher / masquer mot de passe
+const passwordInput = document.getElementById("new-password");
+const togglePassword = document.getElementById("toggle-password");
+const eyeOpen1 = document.getElementById("eyesOpen1");
+const eyeClosed1 = document.getElementById("eyesClosed1");
+
+togglePassword.addEventListener("click", function () {
+  const isPassword = passwordInput.type === "password";
+  passwordInput.type = isPassword ? "text" : "password";
+
+  eyeOpen1.classList.toggle("hidden", !isPassword);
+  eyeClosed1.classList.toggle("hidden", isPassword);
+});
+  
+  // Afficher / masquer confirmation mot de passe
+  const confirmPasswordInput = document.getElementById("confirm-password");
+  const toggleConfirmPassword = document.getElementById("toggle-confirm-password");
+  const eyeOpen2 = document.getElementById("eyesOpen2");
+  const eyeClosed2 = document.getElementById("eyesClosed2");
+  
+  toggleConfirmPassword.addEventListener("click", function () {
+    const isPassword = confirmPasswordInput.type === "password";
+    confirmPasswordInput.type = isPassword ? "text" : "password";
+  
+    eyeOpen2.classList.toggle("hidden", !isPassword);
+    eyeClosed2.classList.toggle("hidden", isPassword);
+  });

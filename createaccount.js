@@ -49,75 +49,139 @@ document.addEventListener("DOMContentLoaded", () => {
     AOS.init();
 });
 
-// Pour les validations différentes 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("signup-form");
-    const emailInput = document.getElementById("email");
-    const emailError = document.getElementById("email-error");
-    const passwordInput = document.getElementById("password");
-    const confirmPasswordInput = document.getElementById("confirm-password");
-    const passwordError = document.getElementById("password-error");
-    const confirmPasswordError = document.getElementById("confirm-password-error");
+// Cette requête fetch('http://localhost:3000/api/get-data') sert à envoyer une demande (requête HTTP) à l’URL http://localhost:3000/api/get-data pour récupérer des données depuis ton serveur local.
+fetch('http://localhost:3000/api/get-data')
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err))
 
+
+// DOM chargé
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("signup-form")
+    const emailInput = document.getElementById("email")
+    const emailError = document.getElementById("email-error")
+    const passwordInput = document.getElementById("password")
+    const confirmPasswordInput = document.getElementById("confirm-password")
+    const passwordError = document.getElementById("password-error")
+    const confirmPasswordError = document.getElementById("confirm-password-error")
+
+    // Live validation
     emailInput.addEventListener("input", function () {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!emailRegex.test(emailInput.value)) {
-            emailError.classList.remove("hidden");
+            emailError.classList.remove("hidden")
         } else {
-            emailError.classList.add("hidden");
+            emailError.classList.add("hidden")
         }
-    });
+    })
 
     passwordInput.addEventListener("input", function () {
-        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+={}\[\]:;"'<>,.?/\\|`~\-]{8,}$/
         if (!passwordRegex.test(passwordInput.value)) {
-            passwordError.textContent = "Mot de passe invalide : minimum 8 caractères, incluant au moins une lettre et un chiffre.";
-            passwordError.classList.remove("hidden");
+            passwordError.textContent = "Mot de passe invalide : minimum 8 caractères, incluant au moins une lettre et un chiffre."
+            passwordError.classList.remove("hidden")
         } else {
-            passwordError.classList.add("hidden");
+            passwordError.classList.add("hidden")
         }
-    });
+    })
 
     confirmPasswordInput.addEventListener("input", function () {
         if (passwordInput.value !== confirmPasswordInput.value) {
-            confirmPasswordError.textContent = "Les mots de passe ne correspondent pas.";
-            confirmPasswordError.classList.remove("hidden");
+            confirmPasswordError.textContent = "Les mots de passe ne correspondent pas."
+            confirmPasswordError.classList.remove("hidden")
         } else {
-            confirmPasswordError.classList.add("hidden");
+            confirmPasswordError.classList.add("hidden")
         }
-    });
+    })
 
-    form.addEventListener("submit", function (event) {
-        let isValid = true;
+    // Submit complet
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault()
 
-        // Vérification de l'email
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-            emailError.classList.remove("hidden");
-            isValid = false;
+        const email = emailInput.value.trim()
+        const password = passwordInput.value
+        const confirmPassword = confirmPasswordInput.value
+
+        let isValid = true
+
+        // Vérification email
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            emailError.classList.remove("hidden")
+            isValid = false
         } else {
-            emailError.classList.add("hidden");
+            emailError.classList.add("hidden")
         }
 
-        // Vérification du mot de passe
-        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(passwordInput.value)) {
-            passwordError.textContent = "Mot de passe invalide : minimum 8 caractères, incluant au moins une lettre et un chiffre.";
-            passwordError.classList.remove("hidden");
-            isValid = false;
+        // Vérification mot de passe
+        if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/.test(password)) {
+            passwordError.textContent = "Mot de passe invalide : minimum 8 caractères, incluant au moins une lettre et un chiffre."
+            passwordError.classList.remove("hidden")
+            isValid = false
         } else {
-            passwordError.classList.add("hidden");
+            passwordError.classList.add("hidden")
         }
 
-        // Vérification de la correspondance des mots de passe
-        if (passwordInput.value !== confirmPasswordInput.value) {
-            confirmPasswordError.textContent = "Les mots de passe ne correspondent pas.";
-            confirmPasswordError.classList.remove("hidden");
-            isValid = false;
+        // Vérification correspondance
+        if (password !== confirmPassword) {
+            confirmPasswordError.textContent = "Les mots de passe ne correspondent pas."
+            confirmPasswordError.classList.remove("hidden")
+            isValid = false
         } else {
-            confirmPasswordError.classList.add("hidden");
+            confirmPasswordError.classList.add("hidden")
         }
 
-        if (!isValid) {
-            event.preventDefault(); // Bloque l'envoi du formulaire
+        // Si pas valide → stop
+        if (!isValid) return
+
+        try {
+            const response = await fetch('http://localhost:3000/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert('✅ Compte créé ! Vérifie ton email.');
+                form.reset();
+            } else {
+                alert('❌ ' + result.error);
+            }
+        } catch (error) {
+            console.error('Erreur:', error);
         }
-    });
+    })
+})
+
+
+// Afficher / masquer mot de passe
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("toggle-password");
+const eyeOpen1 = document.getElementById("eyesOpen1");
+const eyeClosed1 = document.getElementById("eyesClosed1");
+
+togglePassword.addEventListener("click", function () {
+  const isPassword = passwordInput.type === "password";
+  passwordInput.type = isPassword ? "text" : "password";
+
+  eyeOpen1.classList.toggle("hidden", !isPassword);
+  eyeClosed1.classList.toggle("hidden", isPassword);
 });
+  
+  // Afficher / masquer confirmation mot de passe
+  const confirmPasswordInput = document.getElementById("confirm-password");
+  const toggleConfirmPassword = document.getElementById("toggle-confirm-password");
+  const eyeOpen2 = document.getElementById("eyesOpen2");
+  const eyeClosed2 = document.getElementById("eyesClosed2");
+  
+  toggleConfirmPassword.addEventListener("click", function () {
+    const isPassword = confirmPasswordInput.type === "password";
+    confirmPasswordInput.type = isPassword ? "text" : "password";
+  
+    eyeOpen2.classList.toggle("hidden", !isPassword);
+    eyeClosed2.classList.toggle("hidden", isPassword);
+  });

@@ -48,17 +48,3 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
     AOS.init();
 });
-
-// Afficher / masquer mot de passe
-const passwordInput = document.getElementById("password");
-const togglePassword = document.getElementById("toggle-password");
-const eyeOpen1 = document.getElementById("eyesOpen1");
-const eyeClosed1 = document.getElementById("eyesClosed1");
-
-togglePassword.addEventListener("click", function () {
-  const isPassword = passwordInput.type === "password";
-  passwordInput.type = isPassword ? "text" : "password";
-
-  eyeOpen1.classList.toggle("hidden", !isPassword);
-  eyeClosed1.classList.toggle("hidden", isPassword);
-});

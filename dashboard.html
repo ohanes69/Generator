@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>Création du compte</title>
     <link href="./src/output.css" rel="stylesheet">
-    <script src="./connnexion.js" defer></script>
+    <script src="./dashboard.js" type="module" defer></script>
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -15,7 +15,6 @@
 <script>
   AOS.init();
 </script>
-<!-- #D9F8EB #D1F6E7 Gradient-color ?-->
 <body class="flex flex-col">
 
     <!-- Header -->
@@ -81,12 +80,12 @@
 
                 <div class="hidden md:flex text-right mr-2">
                     <a href="connnexion.html">
-                        <span class="inline-block border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md">Connexion</span>
+                        <span class="inline-block border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md">Déconnexion</span>
                     </a>
                 </div>
                 <div class="hidden md:block pr-8">
                     <a href="createaccount.html">
-                    <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</span>
+                    <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Tableau de suivi</span>
                     </a>
                 </div>       
             </div>   
@@ -122,79 +121,12 @@
                 <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Factures</p>
                 <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Devis</p>
                 <p id="clickSupportMobile" class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Support</p>
-                <a href="connnexion.html" class="flex justify-center border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md items-center w-1/2">Connexion</a>
-                <a href="createaccount.html" class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</a>
+                <a href="connnexion.html" class="flex justify-center border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md items-center w-1/2">Déconnexion</a>
+                <a href="createaccount.html" class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3 transition duration-300 ease-in-out hover:shadow-md">Tableau de suivi</a>
                 </nav>
              </div>
         </div>
     </header>
 
-         <!-- Page de connexion -->
-    
-         <main class="container mx-auto px-4 flex items-center justify-center h-screen">
-            <div class="w-full max-w-md">
-                <!-- Logo visible uniquement en version mobile -->
-                 <div class="flex justify-center">
-                    <a href="index.html" class="block md:hidden mb-4">
-                        <img src="img/logo.svg" alt="billifyLogo" class="h-12">
-                    </a>
-                 </div>
-
-                 <div class="absolute inset-0 -z-10">
-                    <img src="img/Design sans titre.png" alt="Waves" class="w-full h-full object-cover">
-                </div>
-
-                <div class="p-4 md:p-8 rounded-lg md:shadow-lg">
-                    <h2 class="text-2xl font-semibold text-center mb-6">Connexion</h2>
-                    
-                    <form action="dashboard.html" method="POST" class="space-y-4">
-                        <!-- Email -->
-                        <div>
-                            <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
-                            <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none">
-                        </div>
-                        
-                        <!-- Mot de passe -->
-                        <div class="relative">
-                            <label for="password" class="block text-gray-700 font-medium mb-1">Mot de passe</label>
-                            <input type="password" id="password" name="password" required
-                                class="w-full px-4 py-2 border rounded-lg focus:outline-none pr-10">
-                            <!-- Bouton œil -->
-                            <button type="button" id="toggle-password" class="absolute top-10 right-3 text-gray-500 cursor-pointer">
-                                <svg id="eyesOpen1" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000" class="hidden"><path d="M480-312q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Zm0-72q-40 0-68-28t-28-68q0-40 28-68t68-28q40 0 68 28t28 68q0 40-28 68t-68 28Zm0 192q-142.6 0-259.8-78.5Q103-349 48-480q55-131 172.2-209.5Q337.4-768 480-768q142.6 0 259.8 78.5Q857-611 912-480q-55 131-172.2 209.5Q622.6-192 480-192Zm0-288Zm0 216q112 0 207-58t146-158q-51-100-146-158t-207-58q-112 0-207 58T127-480q51 100 146 158t207 58Z"/></svg> 
-                                
-                                <svg id="eyesClosed1" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000">
-                                    <path d="m637-425-62-62q4-38-23-65.5T487-576l-62-62q13-5 27-7.5t28-2.5q70 0 119 49t49 119q0 14-2.5 28t-8.5 27Zm133 133-52-52q36-28 65.5-61.5T833-480q-49-101-144.5-158.5T480-696q-26 0-51 3t-49 10l-58-58q38-15 77.5-21t80.5-6q143 0 261.5 77.5T912-480q-22 57-58.5 103.5T770-292Zm-2 202L638-220q-38 14-77.5 21t-80.5 7q-143 0-261.5-77.5T48-480q22-57 58-104t84-85L90-769l51-51 678 679-51 51ZM241-617q-35 28-65 61.5T127-480q49 101 144.5 158.5T480-264q26 0 51-3.5t50-9.5l-45-45q-14 5-28 7.5t-28 2.5q-70 0-119-49t-49-119q0-14 3.5-28t6.5-28l-81-81Zm287 89Zm-96 96Z"/>
-                                </svg>                            
-                            </button>
-                        </div>
-                        
-                        <!-- Bouton de connexion -->
-                        <div class="flex justify-center">
-                            <button class="w-fit bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-emerald-600 transition ease-in-out duration-300 cursor-pointer">
-                                Se connecter
-                            </button>
-                        </div>
-                        <div class="space-y-1">
-                            <!-- Mot de passe oulié -->
-                        <p class="text-center text-sm text-gray-900">Mot de passe oublié ? 
-                            <a href="forget.html" class="text-gray-900 hover:underline">Cliquez ici</a>
-                        </p>
-                        <!-- Lien inscription -->
-                        <p class="text-center text-sm text-gray-900">Pas encore de compte ? 
-                            <a href="createaccount.html" class="text-gray-900 hover:underline">Créer un compte</a>
-                        </p>
-                        </div>
-                    </form>
-                </div>
-            </div>     
-        </main>
-        
-
-    <!-- Footer -->
-    <footer class="h-screen bg-black">
-
-    </footer>
 </body>
 </html>
