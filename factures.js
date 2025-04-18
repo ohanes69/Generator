@@ -180,6 +180,22 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+ // Choix Multiple : Choisir le type de produit
+ document.addEventListener("DOMContentLoaded", function () {
+    const typeLinks = document.querySelectorAll("#dropdownProduit a");
+    const typeInput = document.getElementById("ChoiceProduit");
+
+    typeLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const selectedType = this.textContent;
+
+        typeInput.classList.remove("hidden");
+        typeInput.value = selectedType;
+      });
+    });
+  });
 
 // DatePicker - Date de la vente ou prestation
 document.querySelector('#cally-popover1 calendar-date').addEventListener('change', function () {
