@@ -128,18 +128,62 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Dupliquer les lignes pour le détail de la commande
-const addRowBtn = document.getElementById('addRow');
-const container = document.getElementById('linesContainer');
+document.addEventListener("DOMContentLoaded", function () {
+    const addRowButton = document.getElementById("addRow");
+    const linesContainer = document.getElementById("linesContainer");
+    const firstLine = linesContainer.querySelector(".ligne-produit");
 
-  addRowBtn.addEventListener('click', () => {
-    const firstRow = container.querySelector('.ligne-produit');
-    const newRow = firstRow.cloneNode(true);
+    function createCrossIcon() {
+        const cross = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        cross.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        cross.setAttribute("height", "20px");
+        cross.setAttribute("viewBox", "0 -960 960 960");
+        cross.setAttribute("width", "20px");
+        cross.setAttribute("fill", "#6B7280");
+        cross.classList.add("cursor-pointer", "cross-icon");
 
-    // Réinitialise les valeurs des inputs
-    newRow.querySelectorAll('input').forEach(input => input.value = '');
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", "m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z");
+        cross.appendChild(path);
 
-    container.appendChild(newRow);
-  });
+        cross.addEventListener("click", function () {
+            const line = cross.closest(".ligne-produit");
+            if (line) {
+                line.remove();
+            }
+        });
+
+        return cross;
+    }
+
+    // Nettoyer une ligne clonée
+    function cleanClonedLine(clone) {
+        // Supprimer toutes les croix existantes dans la ligne
+        clone.querySelectorAll(".cross-icon").forEach(icon => icon.remove());
+
+        // Réinitialiser tous les champs input
+        clone.querySelectorAll("input").forEach(input => input.value = "");
+
+        // Ajouter une nouvelle croix
+        const cross = createCrossIcon();
+        clone.appendChild(cross);
+
+        return clone;
+    }
+
+    // Ajouter croix à la première ligne seulement si elle n’en a pas déjà
+    if (!firstLine.querySelector(".cross-icon")) {
+        const cross = createCrossIcon();
+        firstLine.appendChild(cross);
+    }
+
+    // Ajouter une ligne
+    addRowButton.addEventListener("click", function () {
+        const clone = firstLine.cloneNode(true);
+        const cleanedClone = cleanClonedLine(clone);
+        linesContainer.appendChild(cleanedClone);
+    });
+});
 
 
   // Choix Multiple : Choisir une des options de type d'opération
@@ -180,36 +224,66 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
  // Choix Multiple : Choisir le type de produit
  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownButton = document.getElementById("dropdownDefaultButton");
+    const dropdownMenu = document.getElementById("dropdownProduit");
     const typeLinks = document.querySelectorAll("#dropdownProduit a");
-    const typeInput = document.getElementById("ChoiceProduit");
 
-    typeLinks.forEach(link => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
+    // Fonction pour ouvrir ou fermer le menu
+    function toggleDropdown() {
+        const isOpen = dropdownMenu.classList.contains("hidden");
+        dropdownMenu.classList.toggle("hidden", !isOpen);
+        dropdownButton.setAttribute("aria-expanded", isOpen.toString());
+    }
 
-        const selectedType = this.textContent;
-
-        typeInput.classList.remove("hidden");
-        typeInput.value = selectedType;
-      });
+    // Ouvrir/fermer le menu au clic sur le bouton
+    dropdownButton.addEventListener("click", function (e) {
+        e.stopPropagation(); // Empêche la propagation pour éviter de fermer le menu immédiatement
+        toggleDropdown();
     });
-  });
+
+    // Fermer le menu si l'utilisateur clique à l'extérieur
+    document.addEventListener("click", function (e) {
+        if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            if (!dropdownMenu.classList.contains("hidden")) {
+                toggleDropdown();
+            }
+        }
+    });
+
+    // Mettre à jour le texte du bouton et fermer le menu après la sélection d'une option
+    typeLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const selectedType = this.textContent;
+            dropdownButton.innerHTML = `${selectedType} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
+            </svg>`;
+            toggleDropdown(); // Fermer le menu après la sélection
+        });
+    });
+});
+
 
 // DatePicker - Date de la vente ou prestation
-document.querySelector('#cally-popover1 calendar-date').addEventListener('change', function () {
-    const date = this.value;
+document.addEventListener("DOMContentLoaded", function () {
+    const calendar = document.querySelector('#cally-popover1 calendar-date');
     const button = document.getElementById('cally1');
-    const label = document.getElementById('cally-label1');
-    const icon = document.getElementById('calendar-icon1');
-    const input = document.querySelector('#cally-popover1').parentElement.querySelector('input');
+    const label = document.getElementById('cally-label');
   
-    input.value = date;;
+    if (calendar) {
+      calendar.addEventListener('change', function (e) {
+        const date = e.target.value;
   
-    // Affiche l'input
-    input.classList.remove('hidden');
-});
+        // Met à jour juste le texte du <span> sans toucher au SVG
+        if (label && date) {
+          label.textContent = date;
+        }
+      });
+    }
+  });
 
 
 // DatePicker - Date d'échéance du règlement

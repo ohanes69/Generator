@@ -142,7 +142,7 @@
 
             <!-- Sélection Client -->
             
-            <button id="dropdownUsersButton" data-dropdown-toggle="dropdownUsers" data-dropdown-placement="bottom" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out mb-10 mt-4" type="button">Sélectionner un client<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <button id="dropdownUsersButton" data-dropdown-toggle="dropdownUsers" data-dropdown-placement="bottom" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out mb-10 mt-4" type="button">Sélectionner un client<svg class="w-2.5 h-2.5 ms-3 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>
             </button>
@@ -319,108 +319,130 @@
                 <span class="text-sm font-medium text-gray-700 mx-3">Détails de la commande</span>
                 <div class="flex-1 border-b-0 border border-gray-300"></div>
             </div>
-            <div class="flex flex-row gap-2">
-                <input
-                type="text"
-                id="factureNumber"
-                class="text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none"
-                placeholder="Numéro de facture">
-                <div>
-                    <button
-                    id="cally1"
-                    class="text-black bg-emerald-300 hover:bg-emerald-400 border border-emerald-300 hover:border-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out"
-                    popovertarget="cally-popover1"
-                    style="anchor-name:--cally1"
-                    >
-                    <span id="cally-label">Date de la vente ou prestation</span>
-                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6" id="calendar-icon">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                    </svg>
-                    </button>
-                
-                    <div
-                    id="cally-popover1"
-                    popover
-                    class="dropdown bg-base-100 rounded-box shadow-lg"
-                    style="position-anchor:--cally1"
-                    >
-                    <calendar-date class="cally">
-                        <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
-                        </svg>
-                        <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
-                        </svg>
-                        <calendar-month></calendar-month>
-                    </calendar-date>
-                    </div>
-                    <input type="text" class="hidden text-black text-sm px-5 py-2.5 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none ml-1">
-                </div>
-
-                <!-- Button - Type de produit -->
-                <div class="flex flex-row">
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdownProduit" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out" type="button">Type de produit <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                        </svg>
-                        </button>
-                        
-                    <!-- Dropdown menu -->
-                    <div id="dropdownProduit" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-sm w-40 rounded-sm">
-                        <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Biens</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Services</a>
-                            </li>
-                        </ul>
-                    </div>
-                        <input id="ChoiceProduit" type="text" class="hidden w-1/3 text-black bg-white text-sm px-5 py-2.5 border-gray-300 border ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none ml-2">
-                </div>
-            </div>
 
 
             <!-- Container pour les lignes -->
             <div id="linesContainer">
-                <!-- Ligne modèle à dupliquer -->
-                <div class="flex flex-row gap-x-2 ligne-produit">
-                <input type="text" class="w-64 mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Entrez une description">
-                <div class="relative mt-3">
-                    <div class="absolute -top-4 left-3 px-1">
-                      <span class="text-sm text-gray-700 bg-white px-1">Quantité</span>
+                <div class="flex flex-row gap-x-2 ligne-produit items-center mt-6">
+                    <!-- Ligne modèle à dupliquer -->
+                    <div class="relative">
+                        <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Numéro de facture</span>
+                        </div>
+                        <input type="text" 
+                            id="profession" 
+                            placeholder="FTE-2025"
+                            class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
                     </div>
-                    <input type="text" 
-                           id="profession" 
-                           placeholder="1,00"
-                           class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
-                </div>
-                <div class="relative mt-3">
-                    <div class="absolute -top-4 left-3 px-1">
-                      <span class="text-sm text-gray-700 bg-white px-1">Prix</span>
+                    <div class="relative">
+                        <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Description</span>
+                        </div>
+                        <input type="text" 
+                            id="profession" 
+                            placeholder="Entrez une description"
+                            class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
                     </div>
-                    <input type="text" 
-                           id="profession" 
-                           placeholder="0,00€"
-                           class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
-                </div>
-                <div class="relative mt-3">
-                    <div class="absolute -top-4 left-3 px-1">
-                      <span class="text-sm text-gray-700 bg-white px-1">TVA</span>
+                    <!-- Button - Type de produit -->
+                    <div class="relative">
+                        <div class="absolute -top-4 left-3 px-1">
+                            <span class="text-sm text-gray-700 bg-white px-1">Type de produit</span>
+                        </div>
+                        <div class="flex flex-row">
+                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdownProduit"
+                                class="text-black font-normal text-[13px] px-5 py-2.5 text-center inline-flex items-center justify-between cursor-pointer border border-gray-300 w-40"
+                                type="button">
+                                <span>Biens</span>
+                                <svg class="w-2.5 h-2.5 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                        d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
+                                
+                            <!-- Dropdown menu -->
+                            <div id="dropdownProduit" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-sm w-32 rounded-sm">
+                                <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Biens</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Services</a>
+                                    </li>
+                                </ul>
+                            </div>
+        
+                        </div>
                     </div>
-                    <input type="text" 
-                           id="profession" 
-                           placeholder="20%"
-                           class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
-                </div>
-                <div class="relative mt-3">
-                    <div class="absolute -top-4 left-3 px-1">
-                      <span class="text-sm text-gray-700 bg-white px-1">Montant TTC</span>
+    
+                    <div class="relative">
+                        <div class="absolute -top-4 left-3 px-1">
+                            <span class="text-sm text-gray-700 bg-white px-1">Date</span>
+                        </div>
+                        <button
+                        id="cally1"
+                        class="text-black font-normal text-[13px] px-5 py-2.5 text-center inline-flex items-center justify-between cursor-pointer border border-gray-300 w-36"
+                        popovertarget="cally-popover1"
+                        style="anchor-name:--cally1"
+                        >
+                        <span id="cally-label">2025-01-01</span>
+                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6" id="calendar-icon">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
+                        </svg>
+                        </button>
+                    
+                        <div
+                        id="cally-popover1"
+                        popover
+                        class="dropdown bg-base-100 rounded-box shadow-lg"
+                        style="position-anchor:--cally1"
+                        >
+                        <calendar-date class="cally">
+                            <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+                            </svg>
+                            <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+                            </svg>
+                            <calendar-month></calendar-month>
+                        </calendar-date>
+                        </div>
                     </div>
-                    <input type="text" 
-                           id="profession" 
-                           placeholder="0,00€"
-                           class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
-                </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Quantité</span>
+                        </div>
+                        <input type="text" 
+                            id="profession" 
+                            placeholder="1,00"
+                            class="w-28 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Prix</span>
+                        </div>
+                        <input type="text" 
+                            id="profession" 
+                            placeholder="0,00€"
+                            class="w-24 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">TVA</span>
+                        </div>
+                        <input type="text" 
+                            id="profession" 
+                            placeholder="20%"
+                            class="w-20 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Montant TTC</span>
+                        </div>
+                        <input type="text" 
+                            id="profession" 
+                            placeholder="0,00€"
+                            class="w-32 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
+                    </div>
                 </div>
             </div>
             
