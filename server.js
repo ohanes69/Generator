@@ -1,44 +1,26 @@
-// server.js
-import express from 'express';
-import { createClient } from '@supabase/supabase-js';
-import dotenv from 'dotenv';
-import cors from 'cors';
+const express = require('express')
 
-dotenv.config();
+const bodyParser = require('body-parser')
 
-const app = express();
-app.use(express.json());
-app.use(cors()); // Autoriser les appels depuis ton frontend
+const apiRouter = require('./apiRouter').router
 
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+require('./db.js');  // Charger la connexion à la base de données
 
-// Route pour l'inscription
-app.post('/api/signup', async (req, res) => {
-    const { email, password } = req.body;
+require('dotenv').config();
 
-    const { data, error } = await supabase.auth.signUp({
-        email,
-        password
-    });
+const server = express()
 
-    if (error) {
-        return res.status(400).json({ error: error.message });
-    }
+// Body Parser configuration
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
 
-    res.status(200).json({ message: 'Compte créé !', data });
-});
+server.get('/', function(req, res) {
+    res.setHeader('Content-Type', 'text/html')
+    res.status(200).send('<h4>Bienvenue</h4>')
+})
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Serveur démarré sur le port ${PORT}`));
+server.use('/api/', apiRouter);
 
-// Route pour récupérer depuis la console les données clients
-app.get('/api/get-data', async (req, res) => {
-    const { data, error } = await supabase
-        .from('clients')
-        .select('*');
-
-    if (error) {
-        return res.status(500).json({ error: error.message });
-    }
-    res.json(data);
-});
+server.listen(8080, function () {
+    console.log('Server en écoute !')
+})
