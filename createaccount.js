@@ -49,12 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     AOS.init();
 });
 
-// Cette requête fetch('http://localhost:3000/api/get-data') sert à envoyer une demande (requête HTTP) à l’URL http://localhost:3000/api/get-data pour récupérer des données depuis ton serveur local.
-fetch('http://localhost:3000/api/get-data')
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error(err))
-
 
 // DOM chargé
 document.addEventListener("DOMContentLoaded", function () {
@@ -135,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isValid) return
 
         try {
-            const response = await fetch('http://localhost:3000/api/signup', {
+            const response = await fetch('http://localhost:8080/api/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -146,8 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const result = await response.json();
 
             if (response.ok) {
-                alert('✅ Compte créé ! Vérifie ton email.');
-                form.reset();
+                
+                setTimeout(function() {
+                    form.reset(); // Réinitialiser le formulaire après 2 secondes
+                }, 2000)
             } else {
                 alert('❌ ' + result.error);
             }
@@ -185,3 +181,21 @@ togglePassword.addEventListener("click", function () {
     eyeOpen2.classList.toggle("hidden", !isPassword);
     eyeClosed2.classList.toggle("hidden", isPassword);
   });
+
+
+// Faire apparaître la pop-up lors du chargement de la page, puis la faire disparaître selon le choix du user
+
+        let popup = document.getElementById('pop-up')
+    setTimeout(() => {
+        popup.classList.remove('hidden')
+        setTimeout(() => {
+            popup.classList.remove('opacity-0', 'scale-90', 'translate-y-4');
+        }, 50);
+    }, 2000);
+
+    let croix = document.getElementById('croix')
+    croix.addEventListener('click', () => {
+        popup.classList.add('hidden')
+    })
+
+
