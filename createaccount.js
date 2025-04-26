@@ -140,10 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const result = await response.json();
 
             if (response.ok) {
-                
+                popUpDisplay()
                 setTimeout(function() {
                     form.reset(); // Réinitialiser le formulaire après 2 secondes
-                }, 2000)
+                }, 1500)
             } else {
                 alert('❌ ' + result.error);
             }
@@ -185,17 +185,20 @@ togglePassword.addEventListener("click", function () {
 
 // Faire apparaître la pop-up lors du chargement de la page, puis la faire disparaître selon le choix du user
 
-        let popup = document.getElementById('pop-up')
+function popUpDisplay() {
+
+    let popup = document.getElementById('pop-up')
     setTimeout(() => {
         popup.classList.remove('hidden')
         setTimeout(() => {
             popup.classList.remove('opacity-0', 'scale-90', 'translate-y-4');
         }, 50);
-    }, 2000);
+    }, 1500);
 
     let croix = document.getElementById('croix')
     croix.addEventListener('click', () => {
         popup.classList.add('hidden')
     })
+}
 
 

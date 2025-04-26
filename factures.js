@@ -135,24 +135,56 @@ document.addEventListener("DOMContentLoaded", function () {
     const firstLine = linesContainer.querySelector(".ligne-produit");
 
     // Fonction pour calculer le TTC
-    function calculateTTC(line) {
+function calculateTTC(line) {
+    const quantity = parseFloat(line.querySelector('.quantity-input').value.replace(',', '.')) || 0;
+    const price = parseFloat(line.querySelector('.price-input').value.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
+    const vat = parseFloat(line.querySelector('.vat-input').value.replace('%', '').replace(',', '.')) || 0;
+    
+    const ht = quantity * price;
+    const ttc = ht * (1 + vat / 100);
+    
+    line.querySelector('.ttc-input').value = ttc.toFixed(2).replace('.', ',') + '€';
+}
+
+// Fonction pour recalculer tous les totaux
+function calculateTotals() {
+    const lines = document.querySelectorAll('.ligne-produit');
+
+    let totalHT = 0;
+    let totalTVA = 0;
+    let totalTTC = 0;
+
+    lines.forEach(line => {
         const quantity = parseFloat(line.querySelector('.quantity-input').value.replace(',', '.')) || 0;
         const price = parseFloat(line.querySelector('.price-input').value.replace(/[^0-9.,]/g, '').replace(',', '.')) || 0;
         const vat = parseFloat(line.querySelector('.vat-input').value.replace('%', '').replace(',', '.')) || 0;
-        
-        const ht = quantity * price;
-        const ttc = ht * (1 + vat / 100);
-        
-        line.querySelector('.ttc-input').value = ttc.toFixed(2).replace('.', ',') + '€';
-    }
 
-    // Initialise les calculs pour une ligne
-    function setupLineCalculations(line) {
-        line.querySelectorAll('.quantity-input, .price-input, .vat-input').forEach(input => {
-            input.addEventListener('input', () => calculateTTC(line));
+        const ht = quantity * price;
+        const tvaAmount = ht * (vat / 100);
+        const ttc = ht + tvaAmount;
+
+        totalHT += ht;
+        totalTVA += tvaAmount;
+        totalTTC += ttc;
+    });
+
+    // Mise à jour dans le HTML
+    document.querySelector('#totalHT').textContent = totalHT.toFixed(2).replace('.', ',') + '€';
+    document.querySelector('#totalTVA').textContent = totalTVA.toFixed(2).replace('.', ',') + '€';
+    document.querySelector('#totalTTC').textContent = totalTTC.toFixed(2).replace('.', ',') + '€';
+}
+
+// Initialise les calculs pour une ligne
+function setupLineCalculations(line) {
+    line.querySelectorAll('.quantity-input, .price-input, .vat-input').forEach(input => {
+        input.addEventListener('input', () => {
+            calculateTTC(line);
+            calculateTotals();
         });
-        calculateTTC(line); // Calcul initial
-    }
+    });
+    calculateTTC(line); // Calcul initial
+    calculateTotals();  // Met à jour les totaux dès l'ajout
+}
 
     // Fonction pour initialiser un calendrier
     function initCalendar(button) {
@@ -206,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cross.setAttribute("viewBox", "0 -960 960 960");
         cross.setAttribute("width", "20px");
         cross.setAttribute("fill", "currentColor");
-        cross.classList.add("cursor-pointer", "cross-icon", "text-gray-500", "hover:text-red-500");
+        cross.classList.add("cursor-pointer", "cross-icon", "text-gray-500", "hover:text-red-500", "flex-shrink-0", "min-w-[20px]", "min-h-[20px]");
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", "m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z");
@@ -348,6 +380,7 @@ document.querySelector('#cally-popover2 calendar-date').addEventListener('change
     // Affiche l'input
     input.classList.remove('hidden');
   });
+  
 
   // Choix Multiple : Choisir une des options de paiement
 document.addEventListener("DOMContentLoaded", function () {
