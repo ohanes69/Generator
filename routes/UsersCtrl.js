@@ -7,6 +7,10 @@ const jwt = require('jsonwebtoken'); // Module pour générer et vérifier des t
 const models = require('../models'); // Accès à la base de données via Sequelize
 const jwtUtils = require('../utils/jwt.utils'); // Outils pour gérer les tokens JWT
 
+// const crypto = require('crypto');
+// const sgMail = require('@sendgrid/mail');
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 // ---------------------------
 // 📌 CONSTANTES DE VALIDATION
 // ---------------------------

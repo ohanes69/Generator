@@ -21,6 +21,7 @@ const corsOptions = {
     allowedHeaders: ['Content-Type'],
   };
   
+// const authController = require('./controllers/authController');
 
 // Configuration de body-parser pour analyser les données envoyées dans les requêtes
 server.use(bodyParser.urlencoded({ extended: true })); // Pour analyser les données encodées dans l'URL
@@ -34,6 +35,8 @@ server.get('/', function(req, res) {
     // On renvoie un message de bienvenue
     res.status(200).send('<h4>Bienvenue</h4>');
 });
+
+// server.get('/verify', authController.verifyEmail);
 
 // On utilise le routeur API pour les routes commençant par "/api/"
 server.use('/api/', apiRouter);
