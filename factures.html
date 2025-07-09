@@ -20,648 +20,648 @@
 <script type="module" src="https://unpkg.com/cally"></script>
 <body class="bg-white flex flex-col">
 
-    <!-- Header -->
+  <!-- Header -->
 
-            <header>
-                <div class="flex items-center py-3 md:pt-8 justify-between w-full border-b border-gray-200 md:pb-0 md:border-b-0 fixed top-0 bg-white/50 backdrop-blur-sm md:backdrop-blur-none md:bg-transparent z-50">
+<header>
+  <div class="flex items-center py-3 md:pt-8 justify-between w-full border-b border-gray-200 md:pb-0 md:border-b-0 fixed top-0 bg-white/50 backdrop-blur-sm md:backdrop-blur-none md:bg-transparent z-50">
 
-                <!-- Logo -->
+  <!-- Logo -->
 
-                <a href="index.html">
-                <img src="img/logo.svg" alt="billifyLogo" class="ml-4 md:ml-8 h-8 md:h-12">
-                </a>
-                <!-- Icon mobile burger -->
+    <a href="index.html">
+      <img src="img/logo.svg" alt="billifyLogo" class="ml-4 md:ml-8 h-8 md:h-12">
+    </a>
 
-                <button id="buttonBurger" class="block text-gray-700 hover:text-black bg-transparent rounded-lg p-1 hover:bg-gray-200 focus:outline-none cursor-pointer md:hidden absolute right-0 mr-4 md:mr-8 transition duration-300 ease-in-out">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-                    </svg>
-                </button>
+  <!-- Icon mobile burger -->
 
-                <!-- Conteneur pour le menu -->
+    <button id="buttonBurger" class="block text-gray-700 hover:text-black bg-transparent rounded-lg p-1 hover:bg-gray-200 focus:outline-none cursor-pointer md:hidden absolute right-0 mr-4 md:mr-8 transition duration-300 ease-in-out">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+      </svg>
+    </button>
 
-                <div class="flex-grow flex justify-center">
+  <!-- Conteneur pour le menu -->
 
-                    <!-- Menu (hidden on mobile, centered on desktop) -->
-                     
-                    <div class="hidden md:flex text-gray-700 bg-white rounded-3xl py-3 px-8 md:bg-white/50 md:backdrop-blur-sm md:shadow-md md:z-50">
+    <div class="flex-grow flex justify-center">
 
-                        <!-- Accueil -->
-                    
-                        <a href="index.html" class="pr-16 cursor-pointer hover:text-emerald-500 transition duration-200 ease-in-out">Accueil</a>
-                        
-                        <!-- Facture -->
+  <!-- Menu (hidden on mobile, centered on desktop) -->
 
-                        <div class="relative group">
-                            <div class="flex items-center cursor-pointer">
-                                <p class="hover:text-emerald-500 transition duration-200 ease-in-out">Factures</p>                      
-                            </div>
-                        </div>
+      <div class="hidden md:flex text-gray-700 bg-white rounded-3xl py-3 px-8 md:bg-white/50 md:backdrop-blur-sm md:shadow-md md:z-50">
 
-                        <!-- Devis -->
+  <!-- Accueil -->
 
-                        <div class="pl-16">
-                            <div class="relative group">
-                                <div class="flex items-center cursor-pointer">
-                                    <p class="hover:text-emerald-500 transition duration-200 ease-in-out">Devis</p>
-                                </div>
-                            </div>
-                        </div>
+        <a href="index.html" class="pr-16 cursor-pointer hover:text-emerald-500 transition duration-200 ease-in-out">Accueil</a>
 
-                        <!-- Support -->
+  <!-- Facture -->
 
-                        <div class="pl-16">
-                            <div class="relative group">
-                                <div class="flex items-center cursor-pointer">
-                                    <p id="clickSupport" class="hover:text-emerald-500 transition duration-200 ease-in-out">Support</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="relative group">
+            <div class="flex items-center cursor-pointer">
+                <p class="hover:text-emerald-500 transition duration-200 ease-in-out">Factures</p>
+            </div>
+        </div>
+
+  <!-- Devis -->
+
+        <div class="pl-16">
+            <div class="relative group">
+                <div class="flex items-center cursor-pointer">
+                    <p class="hover:text-emerald-500 transition duration-200 ease-in-out">Devis</p>
                 </div>
+            </div>
+        </div>
 
-                <!-- Connexion and Créer un compte (hidden on mobile, visible on desktop) -->
+  <!-- Support -->
 
-                <div class="hidden md:flex text-right mr-2">
-                    <a href="connnexion.html">
-                    <span class="inline-block border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md">Connexion</span>
-                    </a>
+        <div class="pl-16">
+            <div class="relative group">
+                <div class="flex items-center cursor-pointer">
+                    <p id="clickSupport" class="hover:text-emerald-500 transition duration-200 ease-in-out">Support</p>
                 </div>
-                <div class="hidden md:block pr-8">
-                    <a href="createaccount.html">
-                    <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</span>
-                    </a>
-                </div>       
-            </div>   
+            </div>
+        </div>
+      </div>
+    </div>
 
-        <!-- Mobile Sliding Menu -->
+  <!-- Connexion and Créer un compte (hidden on mobile, visible on desktop) -->
 
-        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white/50 backdrop-blur-3xl shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-50">
-            <!-- Header du menu mobile (logo + bouton de fermeture) -->
-            <div class="flex justify-between items-center p-3 border-b border-gray-300">
+    <div class="hidden md:flex text-right mr-2">
+        <a href="connnexion.html">
+          <span class="inline-block border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md">Connexion</span>
+        </a>
+    </div>
+    <div class="hidden md:block pr-8">
+        <a href="createaccount.html">
+          <span class="inline-block rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</span>
+        </a>
+    </div>
+  </div>
 
-                <!-- Logo -->
+  <!-- Mobile Sliding Menu -->
 
-                <a href="index.html" class="cursor-pointer">
-                    <img src="img/logo.svg" alt="Billify" class="h-8 w-auto">
-                </a>
+  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-white/50 backdrop-blur-3xl shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out md:hidden z-50">
 
-                <!-- Bouton de fermeture -->
+    <!-- Header du menu mobile (logo + bouton de fermeture) -->
 
-                <button id="buttonClose" class="text-gray-700 hover:text-black bg-transparent rounded-lg p-1 hover:bg-gray-200 focus:outline-none cursor-pointer hidden absolute right-0 mr-4 md:mr-8 transition duration-300 ease-in-out">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    <div class="flex justify-between items-center p-3 border-b border-gray-300">
+        <a href="index.html" class="cursor-pointer">
+            <img src="img/logo.svg" alt="Billify" class="h-8 w-auto">
+        </a>
+
+    <!-- Bouton de fermeture -->
+
+        <button id="buttonClose" class="text-gray-700 hover:text-black bg-transparent rounded-lg p-1 hover:bg-gray-200 focus:outline-none cursor-pointer hidden absolute right-0 mr-4 md:mr-8 transition duration-300 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+
+    <div>
+      <nav class="flex flex-col space-y-3 p-4">
+        <a href="index.html" class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Accueil</a>
+        <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Factures</p>
+        <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Devis</p>
+        <p id="clickSupportMobile" class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Support</p>
+        <a href="connnexion.html" class="flex justify-center border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md items-center w-1/2">Connexion</a>
+        <a href="createaccount.html" class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="relative min-h-screen md:px-20">
+
+    <!-- Facture Generator Tool -->
+    <div class="py-6 px-12 mt-20 md:mt-32">
+
+        <!-- Sélection Client -->
+
+            <button id="dropdownUsersButton" data-dropdown-toggle="dropdownUsers" data-dropdown-placement="bottom" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out mb-10 mt-4" type="button">Sélectionner un client<svg class="w-2.5 h-2.5 ms-3 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownUsers" class="z-10 hidden bg-white rounded-sm shadow-sm w-60">
+                <ul class="h-48 py-2 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
+                    <li>
+                        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+                            <img class="w-6 h-6 me-2 rounded-full" src="img/portrait1.png" alt="Camille Lefevre">
+                            Camille Lefevre
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+                            <img class="w-6 h-6 me-2 rounded-full" src="img/portrait2.png" alt="Thomas Dubois">
+                            Thomas Dubois
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+                            <img class="w-6 h-6 me-2 rounded-full" src="img/portrait3.png" alt="Sophie Morel">
+                            Sophie Morel
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+                            <img class="w-6 h-6 me-2 rounded-full" src="img/portrait4.png" alt="Pierre Martin">
+                            Pierre Martin
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
+                            <img class="w-6 h-6 me-2 rounded-full" src="img/portrait5.png" alt="Élodie Bertrand">
+                            Élodie Bertrand
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" class="flex items-center p-3 text-sm text-emerald-400 border-t border-gray-200 rounded-b-lg bg-white hover:bg-gray-100 hover:underline">
+                    <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                        <path d="M6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Zm11-3h-2V5a1 1 0 0 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 0 0 2 0V9h2a1 1 0 1 0 0-2Z"/>
                     </svg>
-                </button>
+                    Ajouter un nouveau client
+                </a>
             </div>
 
-            <!-- Navigation -->
+            <div class="border-b-0 border border-gray-300"></div>
 
-             <div>
-                <nav class="flex flex-col space-y-3 p-4">
-                <a href="index.html" class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Accueil</a>
-                <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Factures</p>
-                <p class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Devis</p>
-                <p id="clickSupportMobile" class="block border-b border-gray-300 pb-3 text-base text-gray-700 hover:text-emerald-500 cursor-pointer transition duration-200 ease-in-out">Support</p>
-                <a href="connnexion.html" class="flex justify-center border border-gray-500 rounded-3xl py-2 px-6 text-gray-700 cursor-pointer transition duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:border-emerald-500 hover:shadow-md items-center w-1/2">Connexion</a>
-                <a href="createaccount.html" class="flex justify-center rounded-3xl py-2 px-6 bg-emerald-300 text-black cursor-pointer hover:bg-emerald-400 w-2/3 transition duration-300 ease-in-out hover:shadow-md">Créer un compte</a>
-                </nav>
-             </div>
-        </div>
-    </header>
+        <div class="flex flex-row gap-x-16 mt-10">
 
-    <main class="relative min-h-screen md:px-20">
+            <!-- Colonne Données du fournisseur -->
 
-        <!-- Facture Generator Tool -->
-        <div class="py-6 px-12 mt-20 md:mt-32">
+            <div class="w-1/2">
 
-            <!-- Sélection Client -->
-            
-                <button id="dropdownUsersButton" data-dropdown-toggle="dropdownUsers" data-dropdown-placement="bottom" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out mb-10 mt-4" type="button">Sélectionner un client<svg class="w-2.5 h-2.5 ms-3 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                    </svg>
-                </button>
-                
-                <!-- Dropdown menu -->
-                <div id="dropdownUsers" class="z-10 hidden bg-white rounded-sm shadow-sm w-60">
-                    <ul class="h-48 py-2 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
-                        <li>
-                            <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <img class="w-6 h-6 me-2 rounded-full" src="img/portrait1.png" alt="Camille Lefevre">
-                                Camille Lefevre
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <img class="w-6 h-6 me-2 rounded-full" src="img/portrait2.png" alt="Thomas Dubois">
-                                Thomas Dubois
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <img class="w-6 h-6 me-2 rounded-full" src="img/portrait3.png" alt="Sophie Morel">
-                                Sophie Morel
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <img class="w-6 h-6 me-2 rounded-full" src="img/portrait4.png" alt="Pierre Martin">
-                                Pierre Martin
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100">
-                                <img class="w-6 h-6 me-2 rounded-full" src="img/portrait5.png" alt="Élodie Bertrand">
-                                Élodie Bertrand
-                            </a>
-                        </li>
-                    </ul>
-                    <a href="#" class="flex items-center p-3 text-sm text-emerald-400 border-t border-gray-200 rounded-b-lg bg-white hover:bg-gray-100 hover:underline">
-                        <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                            <path d="M6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Zm11-3h-2V5a1 1 0 0 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 0 0 2 0V9h2a1 1 0 1 0 0-2Z"/>
-                        </svg>
-                        Ajouter un nouveau client
-                    </a>
+                <div class="flex items-center mb-3">
+                    <span class="text-sm font-medium text-gray-700 mx-3">Données du fournisseur</span>
                 </div>
-            
-                <div class="border-b-0 border border-gray-300"></div>
-            
-            <div class="flex flex-row gap-x-16 mt-10">
 
-                <!-- Colonne Données du fournisseur -->
-                
-                <div class="w-1/2">
+                <div class="flex flex-col">
 
-                    <div class="flex items-center mb-3">
-                        <span class="text-sm font-medium text-gray-700 mx-3">Données du fournisseur</span>
+                    <div class="flex flex-row gap-x-4">
+                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="TechNova Solutions">
+                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="17 rue Solaris">
                     </div>
 
-                    <div class="flex flex-col">
+                    <div class="flex flex-row gap-x-4">
+                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Paris">
+                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="75013">
+                    </div>
 
-                        <div class="flex flex-row gap-x-4">
-                            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="TechNova Solutions">
-                            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="17 rue Solaris">
-                        </div>
+                    <div class="flex flex-row gap-x-4">
+                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Numéro SIRET/SIREN">
+                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Code NAF/APE">
+                    </div>
 
-                        <div class="flex flex-row gap-x-4">
-                            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Paris">
-                            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="75013">
-                        </div>
+                    <div class="flex flex-row gap-x-4">
+                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="06 98 23 77 88">
+                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="technova.solutions@exemple.com">
+                    </div>
 
-                        <div class="flex flex-row gap-x-4">
-                            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Numéro SIRET/SIREN">
-                            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Code NAF/APE">
-                        </div>
 
-                        <div class="flex flex-row gap-x-4">
-                            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="06 98 23 77 88">
-                            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="technova.solutions@exemple.com">
-                        </div>
+                    <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 w-full mt-3">
+                        <!-- Input file caché -->
+                        <input class="hidden" id="file_input" type="file">
 
-                    
-                        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 w-full mt-3">
-                            <!-- Input file caché -->
-                            <input class="hidden" id="file_input" type="file">
-                            
-                            <!-- Bouton personnalisé -->
-                            <div class="flex flex-row">
-                                <label id="fileInputBtn" class="cursor-pointer bg-emerald-300 hover:bg-emerald-400 text-white px-5 py-2.5 text-sm transition duration-300 ease-in-out flex items-center space-x-2">
-                                    <span class="text-black">Choisir un fichier</span>
-                                    <svg class="w-4 h-4 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                    </svg>
-                                </label>
-                            </div>
-                            
-                            <!-- Zone d'affichage du nom de fichier -->
-                            <div id="file_name_display" class="flex-1 px-5 py-2.5 text-sm border border-gray-300 text-gray-500">
-                                Téléversez le logo de votre entreprise
-                            </div>
-                        </div>
-                    
-                        
-                       <!-- PopUp -->
-                        <div id="popUpImage" class="fixed inset-0 flex justify-center items-center z-50 bg-[rgba(0,0,0,0.2)] w-full hidden">
-                            <label for="dropzone-file" class="flex flex-col items-center justify-center md:w-[30%] h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <svg class="w-8 h-8 mb-4 text-emerald-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                    </svg>
-                                    <p class="mb-2 text-sm text-gray-500"><span class="font-semibold text-emerald-500">Cliquer pour télécharger</span> ou glisser-déposer</p>
-                                    <p class="text-xs text-gray-500">SVG, PNG, JPG ou GIF (MAX. 800x400px)</p>
-                                </div>
-                                <input id="dropzone-file" type="file" class="hidden" />
+                        <!-- Bouton personnalisé -->
+                        <div class="flex flex-row">
+                            <label id="fileInputBtn" class="cursor-pointer bg-emerald-300 hover:bg-emerald-400 text-white px-5 py-2.5 text-sm transition duration-300 ease-in-out flex items-center space-x-2">
+                                <span class="text-black">Choisir un fichier</span>
+                                <svg class="w-4 h-4 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                </svg>
                             </label>
                         </div>
 
+                        <!-- Zone d'affichage du nom de fichier -->
+                        <div id="file_name_display" class="flex-1 px-5 py-2.5 text-sm border border-gray-300 text-gray-500">
+                            Téléversez le logo de votre entreprise
+                        </div>
+                    </div>
+
+
+                    <!-- PopUp -->
+                    <div id="popUpImage" class="fixed inset-0 flex justify-center items-center z-50 bg-[rgba(0,0,0,0.2)] w-full hidden">
+                        <label for="dropzone-file" class="flex flex-col items-center justify-center md:w-[30%] h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <svg class="w-8 h-8 mb-4 text-emerald-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                </svg>
+                                <p class="mb-2 text-sm text-gray-500"><span class="font-semibold text-emerald-500">Cliquer pour télécharger</span> ou glisser-déposer</p>
+                                <p class="text-xs text-gray-500">SVG, PNG, JPG ou GIF (MAX. 800x400px)</p>
+                            </div>
+                            <input id="dropzone-file" type="file" class="hidden" />
+                        </label>
                     </div>
 
                 </div>
-            
-                <!-- Colonne Données du client -->
-                <div class="w-1/2">
-                    <div class="flex items-center mb-3">
-                        <span class="text-sm font-medium text-gray-700 mx-3">Données du client</span>
+
+            </div>
+
+            <!-- Colonne Données du client -->
+            <div class="w-1/2">
+                <div class="flex items-center mb-3">
+                    <span class="text-sm font-medium text-gray-700 mx-3">Données du client</span>
+                </div>
+
+                <div class="flex flex-row gap-x-4">
+
+                    <!-- Professionnel -->
+
+                    <div class="flex flex-col w-1/2">
+
+                        <div class="relative mt-3">
+
+                            <div class="absolute -top-4 left-3 px-1">
+                              <span class="text-sm text-gray-700 bg-white px-1">Professionnel</span>
+                            </div>
+                            <input type="text"
+                                    id="profession"
+                                    placeholder="Nexora Group"
+                                    class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
+
+                        </div>
+
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="14 rue Veltris">
+
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Lyon">
+
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="69007">
+
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Numéro SIRET/SIREN">
+
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Code NAF/APE">
+
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="07 62 89 45 10">
+
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="nexora.group@exemple.fr">
+
                     </div>
-                    
-                    <div class="flex flex-row gap-x-4">
 
-                        <!-- Professionnel -->
+                    <!-- Particulier -->
 
-                        <div class="flex flex-col w-1/2">
+                    <div class="flex flex-col w-1/2">
 
-                            <div class="relative mt-3">
+                        <div class="relative mt-3">
 
-                                <div class="absolute -top-4 left-3 px-1">
-                                  <span class="text-sm text-gray-700 bg-white px-1">Professionnel</span>
-                                </div>
-                                <input type="text" 
-                                       id="profession" 
-                                       placeholder="Nexora Group"
-                                       class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
-
+                            <div class="absolute -top-4 left-3 px-1">
+                              <span class="text-sm text-gray-700 bg-white px-1">Particulier</span>
                             </div>
-
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="14 rue Veltris">
-    
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Lyon">
-
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="69007">
-    
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Numéro SIRET/SIREN">
-
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Code NAF/APE">
-
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="07 62 89 45 10">
-
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="nexora.group@exemple.fr">
+                            <input type="text"
+                                    id="profession"
+                                    placeholder="Pierre"
+                                    class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
 
                         </div>
 
-                        <!-- Particulier -->
-                        
-                        <div class="flex flex-col w-1/2">
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Chartier">
 
-                            <div class="relative mt-3">
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="42 rue des Lilas">
 
-                                <div class="absolute -top-4 left-3 px-1">
-                                  <span class="text-sm text-gray-700 bg-white px-1">Particulier</span>
-                                </div>
-                                <input type="text" 
-                                       id="profession" 
-                                       placeholder="Pierre"
-                                       class="w-full border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" />
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="44000">
 
-                            </div>
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Nantes">
 
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Chartier">
-    
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="42 rue des Lilas">
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Code NAF/APE">
 
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="44000">
-    
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Nantes">
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="06 45 78 12 34">
 
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Code NAF/APE">
-
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="06 45 78 12 34">
-
-                            <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="pierre.chartier@exemple.com">
-
-                        </div>
+                        <input type="text" class="mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="pierre.chartier@exemple.com">
 
                     </div>
 
                 </div>
 
             </div>
-        
-            <!-- Détails de la prestation -->
-            <div class="border-b-0 border border-gray-300 mb-10 mt-16"></div>
 
-                <span class="text-sm font-medium text-gray-700 mx-3">Détails de la prestation</span>
-        
-                <div class="flex flex-col">
+        </div>
 
-                    <!-- Container pour les lignes -->
-                    <div id="linesContainer">
-                  
-                      <div class="flex flex-row gap-x-2 ligne-produit items-center mt-8 flex-wrap">
-                  
-                        <!-- Ligne modèle à dupliquer -->
-                        <div class="relative">
-                          <div class="absolute -top-4 left-3 px-1">
-                            <span class="text-sm text-gray-700 bg-white px-1">Numéro de facture</span>
-                          </div>
-                          <input type="text" 
-                            id="numero-facture" 
-                            placeholder="FTE-2025"
-                            class="w-42 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm"
-                          />
-                        </div>
-                  
-                        <div class="relative">
-                          <div class="absolute -top-4 left-3 px-1">
-                            <span class="text-sm text-gray-700 bg-white px-1">Description</span>
-                          </div>
-                          <input type="text" 
-                            id="description" 
-                            placeholder="Entrez une description"
-                            class="w-60 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" 
-                          />
-                        </div>
-                  
-                        <!-- Button - Type de produit -->
-                        <div class="relative">
-                          <div class="absolute -top-4 left-3 px-1">
-                            <span class="text-sm text-gray-700 bg-white px-1">Type de produit</span>
-                          </div>
-                  
-                          <div class="flex flex-row">
-                            <button data-dropdown
-                              class="text-black font-normal text-[13px] px-5 py-2.5 text-center inline-flex items-center justify-between cursor-pointer border border-gray-300 w-40 focus:outline-none"
-                              type="button">
-                              <span>Biens</span>
-                              <svg class="w-2.5 h-2.5 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
-                              </svg>
-                            </button>
-                              
-                            <div class="dropdown-menu z-10 hidden absolute top-full left-0 mt-1 bg-white divide-y divide-gray-100 shadow-sm w-40 rounded-sm border border-gray-200">
-                              <ul class="py-1 text-sm text-black">
-                                <li>
-                                  <a href="#" class="dropdown-item block px-4 py-2 hover:bg-gray-100">Biens</a>
-                                </li>
-                                <li>
-                                  <a href="#" class="dropdown-item block px-4 py-2 hover:bg-gray-100">Services</a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                  
-                        <div class="relative">
-                          <div class="absolute -top-4 left-3 px-1">
-                            <span class="text-sm text-gray-700 bg-white px-1">Date</span>
-                          </div>
-                  
-                          <button id="cally1"
-                            class="text-black font-normal text-[13px] px-5 py-2.5 text-center inline-flex items-center justify-between cursor-pointer border border-gray-300 w-36"
-                            popovertarget="cally-popover1"
-                            style="anchor-name:--cally1">
-                            <span class="date-label">2025-01-01</span>
-                            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
-                            </svg>
-                          </button>
-                          
-                          <div id="cally-popover1" popover class="dropdown bg-base-100 rounded-box shadow-lg" style="position-anchor:--cally1">
-                            <calendar-date class="cally">
-                              <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
-                              </svg>
-                              <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
-                              </svg>
-                              <calendar-month></calendar-month>
-                            </calendar-date>
-                          </div>
-                        </div>
-                  
-                        <div class="relative">
-                          <div class="absolute -top-4 left-3 px-1">
-                            <span class="text-sm text-gray-700 bg-white px-1">Quantité</span>
-                          </div>
-                          <input type="text" 
-                            class="quantity-input w-28 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" 
-                            placeholder="1,00"
-                          />
-                        </div>
-                          
-                        <div class="relative">
-                          <div class="absolute -top-4 left-3 px-1">
-                            <span class="text-sm text-gray-700 bg-white px-1">Prix</span>
-                          </div>
-                          <input type="text" 
-                            class="price-input w-24 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" 
-                            placeholder="0,00€"
-                          />
-                        </div>
-                          
-                        <div class="relative">
-                          <div class="absolute -top-4 left-3 px-1">
-                            <span class="text-sm text-gray-700 bg-white px-1">TVA</span>
-                          </div>
-                          <input type="text" 
-                            class="vat-input w-20 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" 
-                            placeholder="20%"
-                          />
-                        </div>
-                        
-                        <div class="relative">
-                          <div class="absolute -top-4 left-3 px-1">
-                            <span class="text-sm text-gray-700 bg-white px-1">Montant TTC</span>
-                          </div>
-                          <input type="text" 
-                            class="ttc-input w-32 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm" 
-                            placeholder="0,00€"
-                            readonly
-                          />
-                        </div>
-                  
+        <!-- Détails de la prestation -->
+        <div class="border-b-0 border border-gray-300 mb-10 mt-16"></div>
+
+            <span class="text-sm font-medium text-gray-700 mx-3">Détails de la prestation</span>
+
+            <div class="flex flex-col">
+
+                <!-- Container pour les lignes -->
+                <div id="linesContainer">
+
+                  <div class="flex flex-row gap-x-2 ligne-produit items-center mt-8 flex-wrap">
+
+                    <!-- Ligne modèle à dupliquer -->
+                    <div class="relative">
+                      <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Numéro de facture</span>
                       </div>
-                  
+                      <input type="text"
+                        id="numero-facture"
+                        placeholder="FTE-2025"
+                        class="w-42 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm"
+                      />
                     </div>
-                  
-                    <!-- Bouton sous les lignes -->
-                    <button id="addRow" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out mt-3 w-42 justify-center">
-                      Ajout d'une ligne
-                    </button>
-                  
-                    <!-- Bloc Totaux aligné à droite -->
-                    <div class="flex justify-end mt-6 mr-8">
-                      <div class="w-64">
-                        <div class="flex flex-row justify-between w-full text-sm font-medium mb-2">
-                          <p>Total HT</p>
-                          <p id="totalHT">0,00€</p>
-                        </div>
-                  
-                        <div class="flex flex-row justify-between w-full text-sm font-medium mb-2">
-                          <p>Total TVA</p>
-                          <p id="totalTVA">0,00€</p>
-                        </div>
-                  
-                        <div class="border-b border-gray-300 my-3"></div>
-                  
-                        <div class="flex flex-row justify-between w-full text-sm font-semibold">
-                          <p>Total dû</p>
-                          <p id="totalTTC">0,00€</p>
-                        </div>
+
+                    <div class="relative">
+                      <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Description</span>
                       </div>
+                      <input type="text"
+                        id="description"
+                        placeholder="Entrez une description"
+                        class="w-60 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm"
+                      />
                     </div>
-                  
-                </div>
 
-            
-        
-            <!-- Conditions de paiement -->
-            <div class="mt-48">
-                <div class="w-1/2">
-                    <div class="flex items-center mb-2">
-                        <div class="flex-1 border-b-0 border border-gray-300"></div>
-                        <span class="text-sm font-medium text-gray-700 mx-3">Conditions de paiement</span>
-                        <div class="flex-1 border-b-0 border border-gray-300"></div>
-                    </div>
-                </div>
-                
+                    <!-- Button - Type de produit -->
+                    <div class="relative">
+                      <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Type de produit</span>
+                      </div>
 
-
-                <!-- Datepicker échéance du règlement -->
-                <div class="w-1/2">
-                    <div>
-                        <button
-                          id="cally2"
-                          class="text-black bg-emerald-300 hover:bg-emerald-400 border border-emerald-300 hover:border-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out"
-                          popovertarget="cally-popover2"
-                          style="anchor-name:--cally2"
-                        >
-                          <span id="cally-label2">Date d’échéance du règlement</span>
-                          <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6" id="calendar-icon2">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                      <div class="flex flex-row">
+                        <button data-dropdown
+                          class="text-black font-normal text-[13px] px-5 py-2.5 text-center inline-flex items-center justify-between cursor-pointer border border-gray-300 w-40 focus:outline-none"
+                          type="button">
+                          <span>Biens</span>
+                          <svg class="w-2.5 h-2.5 text-gray-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
                           </svg>
                         </button>
-                      
-                        <div
-                          id="cally-popover2"
-                          popover
-                          class="dropdown bg-base-100 rounded-box shadow-lg"
-                          style="position-anchor:--cally2"
-                        >
-                          <calendar-date class="cally">
-                            <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
-                            </svg>
-                            <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
-                            </svg>
-                            <calendar-month></calendar-month>
-                          </calendar-date>
-                        </div>
-                        <input type="text" class="hidden text-black text-sm px-5 py-2.5 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none">
-                    </div>               
 
-
-                    <!-- Button - Mode de paiement -->
-                    <div class="flex flex-row mt-3">
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdownFirst" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out" type="button">Choix du mode de règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                            </svg>
-                            </button>
-                            
-                        <!-- Dropdown menu -->
-                        <div id="dropdownFirst" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-sm w-64 rounded-sm">
-                            <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Virement bancaire</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Carte bancaire</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Espèces</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Chèque</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">PayPal</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Autre</a>
-                                </li>
-                                </ul>
+                        <div class="dropdown-menu z-10 hidden absolute top-full left-0 mt-1 bg-white divide-y divide-gray-100 shadow-sm w-40 rounded-sm border border-gray-200">
+                          <ul class="py-1 text-sm text-black">
+                            <li>
+                              <a href="#" class="dropdown-item block px-4 py-2 hover:bg-gray-100">Biens</a>
+                            </li>
+                            <li>
+                              <a href="#" class="dropdown-item block px-4 py-2 hover:bg-gray-100">Services</a>
+                            </li>
+                          </ul>
                         </div>
-                            <input id="ChoicePaiement" type="text" class="hidden w-1/3 text-black bg-white text-sm px-5 py-2.5 border-gray-300 border ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none ml-1">
-                        </div>
+                      </div>
                     </div>
 
-                    
-                        <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Pénalités en cas de retard">
-                        <div class="flex items-center">
-                            <input type="checkbox" checked="checked" class="toggle toggle-success mr-2">
-                            <p class="font-medium text-gray-900">Indemnité forfaitaire de 40€ en cas de retard</p>
-                        </div>
-                    
+                    <div class="relative">
+                      <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Date</span>
+                      </div>
+
+                      <button id="cally1"
+                        class="text-black font-normal text-[13px] px-5 py-2.5 text-center inline-flex items-center justify-between cursor-pointer border border-gray-300 w-36"
+                        popovertarget="cally-popover1"
+                        style="anchor-name:--cally1">
+                        <span class="date-label">2025-01-01</span>
+                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
+                        </svg>
+                      </button>
+
+                      <div id="cally-popover1" popover class="dropdown bg-base-100 rounded-box shadow-lg" style="position-anchor:--cally1">
+                        <calendar-date class="cally">
+                          <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+                          </svg>
+                          <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+                          </svg>
+                          <calendar-month></calendar-month>
+                        </calendar-date>
+                      </div>
+                    </div>
+
+                    <div class="relative">
+                      <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Quantité</span>
+                      </div>
+                      <input type="text"
+                        class="quantity-input w-28 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm"
+                        placeholder="1,00"
+                      />
+                    </div>
+
+                    <div class="relative">
+                      <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Prix</span>
+                      </div>
+                      <input type="text"
+                        class="price-input w-24 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm"
+                        placeholder="0,00€"
+                      />
+                    </div>
+
+                    <div class="relative">
+                      <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">TVA</span>
+                      </div>
+                      <input type="text"
+                        class="vat-input w-20 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm"
+                        placeholder="20%"
+                      />
+                    </div>
+
+                    <div class="relative">
+                      <div class="absolute -top-4 left-3 px-1">
+                        <span class="text-sm text-gray-700 bg-white px-1">Montant TTC</span>
+                      </div>
+                      <input type="text"
+                        class="ttc-input w-32 border border-gray-300 bg-white text-black ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none placeholder:text-gray-500 px-5 py-2.5 text-sm"
+                        placeholder="0,00€"
+                        readonly
+                      />
+                    </div>
+
+                  </div>
+
                 </div>
-    
-    
-                
-                
-        
-            <!-- Montant net à payer -->
-            <div class="mt-6">
-                <p class="font-semibold text-gray-700">Montant net à payer</p>
-                <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Montant net à payer">
+
+                <!-- Bouton sous les lignes -->
+                <button id="addRow" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out mt-3 w-42 justify-center">
+                  Ajout d'une ligne
+                </button>
+
+                <!-- Bloc Totaux aligné à droite -->
+                <div class="flex justify-end mt-6 mr-8">
+                  <div class="w-64">
+                    <div class="flex flex-row justify-between w-full text-sm font-medium mb-2">
+                      <p>Total HT</p>
+                      <p id="totalHT">0,00€</p>
+                    </div>
+
+                    <div class="flex flex-row justify-between w-full text-sm font-medium mb-2">
+                      <p>Total TVA</p>
+                      <p id="totalTVA">0,00€</p>
+                    </div>
+
+                    <div class="border-b border-gray-300 my-3"></div>
+
+                    <div class="flex flex-row justify-between w-full text-sm font-semibold">
+                      <p>Total dû</p>
+                      <p id="totalTTC">0,00€</p>
+                    </div>
+                  </div>
+                </div>
+
             </div>
 
-            <!-- Mentions légales et fiscales -->
-            <div class="mt-6">
-                <p class="font-semibold text-gray-700">Mentions légales et fiscales</p>
-                <div class="flex flex-col md:flex-row">
-                    <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Numéro de bon de commande (si applicable)">
-                    <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Garantie légale de conformité (si concerné)">
-                    <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
+
+
+        <!-- Conditions de paiement -->
+        <div class="mt-48">
+            <div class="w-1/2">
+                <div class="flex items-center mb-2">
+                    <div class="flex-1 border-b-0 border border-gray-300"></div>
+                    <span class="text-sm font-medium text-gray-700 mx-3">Conditions de paiement</span>
+                    <div class="flex-1 border-b-0 border border-gray-300"></div>
+                </div>
+            </div>
+
+
+
+            <!-- Datepicker échéance du règlement -->
+            <div class="w-1/2">
+                <div>
+                    <button
+                      id="cally2"
+                      class="text-black bg-emerald-300 hover:bg-emerald-400 border border-emerald-300 hover:border-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out"
+                      popovertarget="cally-popover2"
+                      style="anchor-name:--cally2"
+                    >
+                      <span id="cally-label2">Date d’échéance du règlement</span>
+                      <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6" id="calendar-icon2">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                      </svg>
+                    </button>
+
+                    <div
+                      id="cally-popover2"
+                      popover
+                      class="dropdown bg-base-100 rounded-box shadow-lg"
+                      style="position-anchor:--cally2"
+                    >
+                      <calendar-date class="cally">
+                        <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+                        </svg>
+                        <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+                        </svg>
+                        <calendar-month></calendar-month>
+                      </calendar-date>
+                    </div>
+                    <input type="text" class="hidden text-black text-sm px-5 py-2.5 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none">
                 </div>
 
 
-                <!-- Button - type d'opération -->
+                <!-- Button - Mode de paiement -->
                 <div class="flex flex-row mt-3">
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out" type="button">Type d’opération <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdownFirst" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out" type="button">Choix du mode de règlement <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                         </svg>
                         </button>
-                        
+
                     <!-- Dropdown menu -->
-                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
+                    <div id="dropdownFirst" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-sm w-64 rounded-sm">
                         <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
                             <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Livraison de biens</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Virement bancaire</a>
                             </li>
                             <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Prestation de services</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Carte bancaire</a>
                             </li>
                             <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Mixte</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Espèces</a>
                             </li>
-                        </ul>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Chèque</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">PayPal</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Autre</a>
+                            </li>
+                            </ul>
                     </div>
-                    <input
-                    id="TypeOperationInput"
-                    type="text"
-                    class="hidden w-1/6 text-black bg-white text-sm px-5 py-2.5 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none ml-1"
-                  />
+                        <input id="ChoicePaiement" type="text" class="hidden w-1/3 text-black bg-white text-sm px-5 py-2.5 border-gray-300 border ring-offset-0 focus:ring-2 focus:ring-emerald-400 focus:border-transparent focus:outline-none ml-1">
                     </div>
                 </div>
-            </div>
-            
-            <!-- Exonération de TVA -->
-            
-            <div class="mt-6">
-                <div class="flex items-center">
-                    <input type="checkbox" checked="checked" class="toggle toggle-success mr-2">
-                    <p class="font-medium text-gray-900">TVA non applicable, article 293 B du CGI</p>
-                </div>
-                <p class="text-xs font-normal text-gray-500 mt-1">Exonération de TVA</p>
+
+
+                    <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Pénalités en cas de retard">
+                    <div class="flex items-center">
+                        <input type="checkbox" checked="checked" class="toggle toggle-success mr-2">
+                        <p class="font-medium text-gray-900">Indemnité forfaitaire de 40€ en cas de retard</p>
+                    </div>
+
             </div>
 
-            <div class="flex justify-center">
-                <button class="flex justify-center rounded-2xl py-2 px-6 cursor-pointer transition duration-300 ease-in-out bg-emerald-500 text-white hover:bg-emerald-600 shadow-md items-center w-1/4">Générer</button>
+
+
+
+
+        <!-- Montant net à payer -->
+        <div class="mt-6">
+            <p class="font-semibold text-gray-700">Montant net à payer</p>
+            <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Montant net à payer">
+        </div>
+
+        <!-- Mentions légales et fiscales -->
+        <div class="mt-6">
+            <p class="font-semibold text-gray-700">Mentions légales et fiscales</p>
+            <div class="flex flex-col md:flex-row">
+                <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Numéro de bon de commande (si applicable)">
+                <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Garantie légale de conformité (si concerné)">
+                <input type="text" class="w-full mt-3 text-black bg-white text-sm px-5 py-2.5 placeholder:text-gray-500 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none" placeholder="Option de paiement de la TVA d’après les débits (si concerné)">
+            </div>
+
+
+            <!-- Button - type d'opération -->
+            <div class="flex flex-row mt-3">
+                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-black bg-emerald-300 hover:bg-emerald-400 focus:outline-none font-normal text-sm px-5 py-2.5 placeholder:text-gray-500 text-center inline-flex items-center cursor-pointer transition duration-300 ease-in-out" type="button">Type d’opération <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                    </button>
+
+                <!-- Dropdown menu -->
+                <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
+                    <ul class="py-2 text-sm text-black" aria-labelledby="dropdownDefaultButton">
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Livraison de biens</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Prestation de services</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Mixte</a>
+                        </li>
+                    </ul>
+                </div>
+                <input
+                id="TypeOperationInput"
+                type="text"
+                class="hidden w-1/6 text-black bg-white text-sm px-5 py-2.5 ring-offset-0 focus:ring-2 focus:ring-emerald-400 border border-gray-300 focus:border-transparent focus:outline-none ml-1"
+              />
+                </div>
             </div>
         </div>
-    </main>
 
-    <footer class="h-screen bg-white">
-        
-    </footer>
+        <!-- Exonération de TVA -->
+
+        <div class="mt-6">
+            <div class="flex items-center">
+                <input type="checkbox" checked="checked" class="toggle toggle-success mr-2">
+                <p class="font-medium text-gray-900">TVA non applicable, article 293 B du CGI</p>
+            </div>
+            <p class="text-xs font-normal text-gray-500 mt-1">Exonération de TVA</p>
+        </div>
+
+        <div class="flex justify-center">
+            <button class="flex justify-center rounded-2xl py-2 px-6 cursor-pointer transition duration-300 ease-in-out bg-emerald-500 text-white hover:bg-emerald-600 shadow-md items-center w-1/4">Générer</button>
+        </div>
+    </div>
+</main>
+
+<footer class="h-screen bg-white">
+
+</footer>
 </body>
 </html>
